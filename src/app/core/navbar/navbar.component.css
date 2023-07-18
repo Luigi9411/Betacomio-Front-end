@@ -1,3 +1,11 @@
 .navbar{
   height: 80px;
 }
+
+.logo{
+  height: 80px;
+}
+
+.nav-color{
+  background-color: #272D26;
+}
