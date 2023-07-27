@@ -10,9 +10,11 @@ import { SliderComponent } from './core/slider/slider.component';
 import { SectionTopComponent } from './core/section-top/section-top.component';
 import { HomeComponent } from './core/home/home.component';
 import { SectionTwoComponent } from './core/section-two/section-two.component';
-import { SectionThreeComponent } from './section-three/section-three.component';
-import { SectionFourComponent } from './section-four/section-four.component';
-import { SectionFiveComponent } from './section-five/section-five.component';
+import { SectionThreeComponent } from './core/section-three/section-three.component';
+import { SectionFourComponent } from './core/section-four/section-four.component';
+import { SectionFiveComponent } from './core/section-five/section-five.component';
+import { BicycleDetailsComponent } from './core/bicycle-details/bicycle-details.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SectionFiveComponent } from './section-five/section-five.component';
     SectionThreeComponent,
     SectionFourComponent,
     SectionFiveComponent,
+    BicycleDetailsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
