@@ -1,0 +1,11 @@
+@media (max-width:576px){
+  .text-br{
+      padding-right:8em;
+  }
+}
+
+@media (min-width:1400px){
+  .text-font{
+      font-size: 1.2em;
+  }
+}

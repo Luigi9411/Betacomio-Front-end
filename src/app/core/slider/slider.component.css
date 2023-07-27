@@ -20,33 +20,42 @@
 .hidden {
   display: none;
 }
-.box1{      background:url('https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+.box1{
+  background:url('https://www.bikeitalia.it/wp-content/uploads/2022/06/Caldo-bici-ciclista-beve-acqua.jpg');
   background-size:cover;
-  background-position:center center;}
+  background-position:center center;
+  cursor: pointer;
+}
 .box2{
-background:url('https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://www.vaielettrico.it/wp-content/uploads/SHIMANO-E-Mountainbike-Experience-2017-4-1024x682-1.jpeg');
   background-size:cover;
-  background-position:center center;}
+  background-position:center center;
+  cursor: pointer;}
 .box3{
-background:url('https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://www.ecovia.it/wp-content/uploads/2020/05/Progetto-senza-titolo-23-1024x576.png');
   background-size:cover;
-  background-position:center center;}
+  background-position:center center;
+  cursor: pointer;}
 .box4{
-background:url('https://images.pexels.com/photos/3274903/pexels-photo-3274903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://images5.bovpg.net/fw/back/it/media/1/1/4/2/6/142659.jpg');
   background-size:cover;
-  background-position:center center;}
+  background-position:bottom center;
+  cursor: pointer;}
 .box5{
-background:url('https://images.pexels.com/photos/3618162/pexels-photo-3618162.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://www.tgtourism.tv/wp-content/uploads/2019/05/9ebeae485ce900ebc24fe2715603ff06.jpg');
   background-size:cover;
-  background-position:center center;}
+  background-position:center center;
+  cursor: pointer;}
 .box6{
-background:url('https://images.pexels.com/photos/4256852/pexels-photo-4256852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://www.erica.it/images/content/1307507_73425_2_C_1170_600_0_466421404/mtb-familie-c-jens-staudt-6-2-.jpg');
   background-size:cover;
-  background-position:center center;}
+  background-position:center center;
+  cursor: pointer;}
 .box7{
-background:url('https://images.pexels.com/photos/1891234/pexels-photo-1891234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
   background-size:cover;
-  background-position:center center;}
+  background-position:top center;
+  cursor: pointer;}
 
 .slider [class*="box"] {
 /*   float: left; */
@@ -115,3 +124,10 @@ background:url('https://images.pexels.com/photos/1891234/pexels-photo-1891234.jp
    0% {left:100%; transform: scale(0.2) translate(-50%,-50%);}
     100% {left: -13%; transform: scale(0.2) translate(-50%,-50%);}
 }
+
+.txt-1{
+  margin-top: 10.5em;
+}
+
+
+

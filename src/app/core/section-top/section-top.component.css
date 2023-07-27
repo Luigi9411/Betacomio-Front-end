@@ -1,0 +1,39 @@
+.card-game {
+	padding: 3px;
+	border: 3px solid transparent;
+	border-radius: 1rem;
+	overflow: hidden;
+	transition: transform .6s;
+}
+
+.card-game.active {
+	border: 3px solid #2D64E6;
+}
+
+.card-game:hover {
+	border: 3px solid #2D64E6;
+	transform: translateY(-20px);
+	cursor: pointer;
+}
+
+.card-game img {
+	border-radius: calc(1rem - 6px);
+  width: 400px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.card-game .img-container {
+  position: relative;
+  text-align: center;
+}
+
+
+.card-game .img-container h6 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
