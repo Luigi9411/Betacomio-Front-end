@@ -1,0 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.img-bord{
+  border-radius: 15px;
+}
+
+.text-font{
+  font-size: medium;
+}
