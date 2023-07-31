@@ -20,7 +20,7 @@
 
 .user-icon{
   padding-top: 15px !important;
-} 
+}
 
 @media (max-width: 768px) {
   /* Nascondi il dropdown menu */
@@ -33,7 +33,7 @@
 @media (max-width: 991px) {
   /* Cambia il colore di sfondo del bottone del toggler */
   .navbar-toggler {
-    background-color: white; 
+    background-color: white;
   }
 }
 
@@ -64,3 +64,4 @@
   font-size: 16px;
   color: #555;
 }
+
