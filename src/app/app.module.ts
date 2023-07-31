@@ -15,6 +15,8 @@ import { SectionFourComponent } from './core/section-four/section-four.component
 import { SectionFiveComponent } from './core/section-five/section-five.component';
 import { BicycleDetailsComponent } from './core/bicycle-details/bicycle-details.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { CustomersComponent } from './feature/customers/customers.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { FooterComponent } from './core/footer/footer.component';
     SectionFiveComponent,
     BicycleDetailsComponent,
     FooterComponent,
+    CustomersComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule
   ],
