@@ -9,3 +9,58 @@
 .nav-color{
   background-color: #272D26;
 }
+
+.text-nav{
+  color: white !important;
+}
+
+.drop{
+  color: white !important;
+}
+
+.user-icon{
+  padding-top: 15px !important;
+} 
+
+@media (max-width: 768px) {
+  /* Nascondi il dropdown menu */
+  .dropdown {
+    display: none;
+  }
+}
+
+/* Media query per schermi con larghezza massima di 768 pixel */
+@media (max-width: 991px) {
+  /* Cambia il colore di sfondo del bottone del toggler */
+  .navbar-toggler {
+    background-color: white; 
+  }
+}
+
+/* Stile per il container della search bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #f2f2f2;
+}
+
+/* Stile per l'input della search bar */
+#searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+/* Stile per il bottone della search bar */
+#searchButton {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}

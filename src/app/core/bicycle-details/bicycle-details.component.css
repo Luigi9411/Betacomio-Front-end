@@ -1,7 +1,10 @@
 *{
-  margin: 0;
+  margin-top: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.top{
+  margin-top: 80px !important;
 }
 
 .img-bord{
@@ -10,4 +13,8 @@
 
 .text-font{
   font-size: medium;
+}
+
+.bg-col {
+  background-color: rgba(203, 198, 198, 0.23);
 }
