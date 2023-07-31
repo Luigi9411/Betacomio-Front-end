@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
   <app-section-three></app-section-three>
   <app-section-four></app-section-four>
   <app-section-five></app-section-five>
-  <app-footer></app-footer>
   `,
 })
 export class HomeComponent {

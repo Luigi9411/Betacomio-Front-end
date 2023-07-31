@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="nav-color container-fluid">
     <a class="navbar-brand" href="#">
       <img class="logo" src="assets/logo/Logo_Betacomio.png" alt="error">
@@ -10,30 +10,47 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active text-nav" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/login" aria-current="page" href="#">Login</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Offerte speciali</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Brand</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+
+      <div class="search-container">
+        <form action="">
+          <input type="text" id="searchInput" placeholder="Cerca...">
+          <button id="searchButton"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+      
+      <!-- barra di ricerca -->
+      <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> -->
+
+      <!-- menu utente -->
+      <ul>
+        <li class="nav-link active dropdown center user-icon">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle text-nav fs-3"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end text-nav">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Register</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
