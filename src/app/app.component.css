@@ -1,0 +1,14 @@
+.btn-bord3
+  {
+    color: black;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid #FF5722;
+  }
+  .btn-bord3:hover
+  {
+    color: #FF5722;
+    background: none;
+    border-radius: 5px;
+    /* border: 2px solid black; */
+  }

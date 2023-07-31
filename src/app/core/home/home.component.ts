@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   template: `
   <app-slider></app-slider>
   <app-section-top></app-section-top>
-  <app-section-two></app-section-two>
   <app-section-three></app-section-three>
+  <app-section-two></app-section-two>
   <app-section-four></app-section-four>
   <app-section-five></app-section-five>
   `,

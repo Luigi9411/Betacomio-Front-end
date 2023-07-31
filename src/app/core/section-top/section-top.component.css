@@ -6,12 +6,10 @@
 	transition: transform .6s;
 }
 
-.card-game.active {
-	border: 3px solid #2D64E6;
-}
+
 
 .card-game:hover {
-	border: 3px solid #2D64E6;
+	border: 3px solid /* #2D64E6 */ #FF5722;
 	transform: translateY(-20px);
 	cursor: pointer;
 }

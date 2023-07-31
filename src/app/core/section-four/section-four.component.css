@@ -1,11 +1,19 @@
-.btn-bord3 {
-  margin-bottom: 6em;
-}
+.btn-bord3
+  {
+    color: black;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid #FF5722;
+  }
+  .btn-bord3:hover
+  {
+    color: white;
+    background: #FF5722;
+    border-radius: 5px;
+    opacity: 0.8;
+    /* border: 2px solid black; */
+  }
 
-.btn-bord3:hover {
-  border: 2px solid white;
-  outline: 2px solid black;
-}
 
 @media (min-width:768px) and (max-width:1399px){
   .text-pad{
