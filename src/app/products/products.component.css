@@ -1,0 +1,16 @@
+.mg-t{
+  margin-top: 90px;
+}
+
+.filter{
+  margin: 1em 3em;
+  width: 150px;
+}
+
+.mg-ul{
+  margin-left: 3em;
+}
+
+li{
+  list-style-type: none;
+}

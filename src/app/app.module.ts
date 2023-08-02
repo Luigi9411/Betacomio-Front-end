@@ -17,6 +17,7 @@ import { BicycleDetailsComponent } from './core/bicycle-details/bicycle-details.
 import { FooterComponent } from './core/footer/footer.component';
 import { CustomersComponent } from './feature/customers/customers.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
     BicycleDetailsComponent,
     FooterComponent,
     CustomersComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

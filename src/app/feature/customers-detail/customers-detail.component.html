@@ -1,1 +1,9 @@
 <p>customers-detail works!</p>
+<input type="file" (change)="onFileSelected($event)" accept="image/jpeg">
+<button (click)="convertToHex(hexCode)">Converti in esadecimale</button>
+
+<div *ngIf="hexCode">
+  <h2>Codice Esadecimale:</h2>
+  <pre>{{ hexCode }}</pre>
+</div>
+
