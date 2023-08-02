@@ -10,16 +10,54 @@
   background-color: #272D26;
 }
 
-.text-nav{
-  color: white !important;
-}
-
 .drop{
   color: white !important;
 }
 
+.navbar a
+{
+    color: white;
+}
+.navbar a:hover
+{
+    color: #FF5722;
+    font-size: 1rem;
+}
+.riquadro
+{
+  background-color: #272D26;
+}
+
 .user-icon{
   padding-top: 15px !important;
+}
+
+.search-input-nav
+  {
+    text-decoration: none;
+    background-color: transparent !important; 
+    border: 2px solid white   !important;
+  }
+
+.search-input-nav:hover
+{
+  border: 2px solid #FF5722   !important;
+}
+nav .search form button[type='submit']
+{
+  font-size: 18px;
+  color: white;
+  background: none;
+}
+nav .search form button[type='submit']:hover
+{
+  font-size: 18px;
+  color:#FF5722;
+  background: none;
+  border-radius: 5px;
+}
+.search-input-nav::placeholder {
+  color: white; /* Imposta il colore del testo del placeholder su bianco */
 }
 
 @media (max-width: 768px) {
@@ -37,7 +75,9 @@
   }
 }
 
-/* Stile per il container della search bar */
+/* SEARCH
+
+Stile per il container della search bar
 .search-container {
   display: flex;
   align-items: center;
@@ -47,7 +87,7 @@
   background-color: #f2f2f2;
 }
 
-/* Stile per l'input della search bar */
+Stile per l'input della search bar
 #searchInput {
   border: none;
   outline: none;
@@ -55,7 +95,7 @@
   margin-right: 5px;
 }
 
-/* Stile per il bottone della search bar */
+Stile per il bottone della search bar
 #searchButton {
   border: none;
   outline: none;
@@ -64,4 +104,4 @@
   font-size: 16px;
   color: #555;
 }
-
+ */

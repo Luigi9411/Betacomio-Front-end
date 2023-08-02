@@ -17,13 +17,13 @@
 
 @media (min-width:768px) and (max-width:1399px){
   .text-pad{
-      padding-top: 60px;
+      padding-top: 30px;
   }
 }
 
 @media (min-width:1400px){
   .text-pad{
-      padding-top: 70px;
+      padding-top: 30px;
   }
 }
 
