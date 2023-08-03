@@ -12,18 +12,24 @@
   max-width: 100%;
 } */
 
-.play-border{
-  opacity: .5;
-  cursor: pointer;
-  background-color: #FF5722;
-  height: 3px;
+/* Aggiungi il seguente codice CSS per creare la transizione */
+div .row  
+{
+  position: relative;
 }
 
-.play-border:hover{
-  opacity: 1;
-  border-bottom: 2px solid /* #2D64E6 */ #FF5722;
+.play-border {
   cursor: pointer;
+  position: relative; /* Assicurati che il contenitore abbia una posizione relativa */
+  transition: transform 0.3s ease;
 }
+
+.play-border:hover {
+  border-radius: 10px;
+  border-bottom: 3px solid #FF5722;
+  transform: translateY(-10px); /* Sposta l'elemento di 5px verso destra durante la transizione */
+}
+
 
 .play-border2{
   opacity: .5;

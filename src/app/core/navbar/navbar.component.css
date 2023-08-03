@@ -57,7 +57,7 @@ nav .search form button[type='submit']:hover
   border-radius: 5px;
 }
 .search-input-nav::placeholder {
-  color: white; /* Imposta il colore del testo del placeholder su bianco */
+  color: white; 
 }
 
 @media (max-width: 768px) {
