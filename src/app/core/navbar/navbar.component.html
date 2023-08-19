@@ -13,29 +13,22 @@
           <a class="nav-link active text-nav" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-nav" routerLink="/customers" aria-current="page" href="#">Shop</a>
+          <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Shop</a>
         </li>
         <li class="nav-item">
-<<<<<<< HEAD
-          <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Offerte</a>
-=======
           <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Offerte speciali</a>
->>>>>>> c36af920ef0ded92cb6a3185c66c9614009342c8
+
         </li>
         <li class="nav-item">
           <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Brand</a>
         </li>
       </ul>
-
-      <div class="search ms-auto">
-        <form action="" class="d-flex" role="search">
-          <div class="input-group">
-            <input name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Cerca" aria-label="Search">
-            <button class="btn rounded" type="submit"><i class="bi bi-search"></i></button>
-          </div>
-        </form>
-      </div>
-
+      <div class="search ms-auto d-flex">
+    <div id="search-component" class="input-group">
+      <input #searchBox id="search-box" name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search"></i></button>
+    </div>
+</div>
 
 
       <!-- menu utente -->
