@@ -14,3 +14,11 @@
 li{
   list-style-type: none;
 }
+
+.img-db{
+  height: 180px;
+}
+
+.text-found{
+  margin: 5em 12em;
+}

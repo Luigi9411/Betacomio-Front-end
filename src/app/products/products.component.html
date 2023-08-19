@@ -1,57 +1,32 @@
 <div class="mg-t d-flex">
   <div>
-    <h6 class="filter">Categorie:</h6>
+    <h6 class="filter">Category:</h6>
     <form>
-      <div class="filter d-flex">
-        <label for="elemento1" class="me-3">Bici</label>
-        <input type="checkbox" id="elemento1" name="elemento1" value="Elemento 1">
+      <div class="filter d-flex" *ngFor="let filter of filters">
+        <label [for]="filter.id" class="me-3">{{ filter.label }}</label>
+        <input type="checkbox" [id]="filter.id" [name]="filter.id" [checked]="filter.selected" (change)="toggleFilter(filter)">
       </div>
-      <div class="filter d-flex">
-
-        <label for="elemento2" class="me-3">Elemento 2</label>
-        <input type="checkbox" id="elemento2" name="elemento2" value="Elemento 2">
-      </div>
-<div class="filter d-flex">
-
-  <label for="elemento3" class="me-3">Elemento 3</label>
-  <input type="checkbox" id="elemento3" name="elemento3" value="Elemento 3">
-</div>
-
-      <div class="filter d-flex">
-      <label for="elemento4" class="me-3">Elemento 4</label>
-      <input type="checkbox" id="elemento4" name="elemento4" value="Elemento 4">
-    </div>
-      <div class="filter d-flex">
-      <label for="elemento5" class="me-3">Elemento 5</label>
-      <input type="checkbox" id="elemento5" name="elemento5" value="Elemento 5">
-    </div>
-      <div class="filter d-flex">
-      <label for="elemento6" class="me-3">Elemento 6</label>
-      <input type="checkbox" id="elemento6" name="elemento6" value="Elemento 6">
-    </div>
-      <div class="filter d-flex">
-      <label for="elemento7" class="me-3">Elemento 7</label>
-      <input type="checkbox" id="elemento7" name="elemento7" value="Elemento 7">
-    </div>
-      <div class="filter d-flex">
-      <label for="elemento8" class="me-3">Elemento 8</label>
-      <input type="checkbox" id="elemento8" name="elemento8" value="Elemento 8">
-    </div>
     </form>
   </div>
-  <ul class="d-flex flex-wrap mg-ul">
-    <li *ngFor="let emp of employees; let idx = index">
-      <!-- Display thumbnail as an image -->
-      <div class="card my-4 mx-4" style="width: 18rem;">
-       <img class="card-img-top img-db" [src]="getThumbnailImageURL(emp.thumbNailPhoto)" alt="Thumbnail">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div *ngIf="filteredEmployees.length > 0">
+    <ul class="d-flex flex-wrap mg-ul">
+      <li *ngFor="let p of filteredEmployees; let idx = index">
+         <div class="card my-4 mx-4" style="width: 18rem;">
+          <img class="card-img-top img-db" [src]="getThumbnailImageURL(p.thumbNailPhoto)
+          " alt="Thumbnail">
+          <div class="card-body">
+            <p class="card-text">{{ p.categoryName }}</p>
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">Price: {{ p.listPrice }}€</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="filteredEmployees.length === 0"><h1 class="text-found">Not found</h1></div>
+
 </div>
 
 

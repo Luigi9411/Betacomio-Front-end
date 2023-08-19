@@ -13,7 +13,7 @@
 } */
 
 /* Aggiungi il seguente codice CSS per creare la transizione */
-div .row  
+div .row
 {
   position: relative;
 }
@@ -25,7 +25,7 @@ div .row
 }
 
 .play-border:hover {
-  border-radius: 10px;
+  border-radius: 5px;
   border-bottom: 3px solid #FF5722;
   transform: translateY(-10px); /* Sposta l'elemento di 5px verso destra durante la transizione */
 }

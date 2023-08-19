@@ -1,0 +1,68 @@
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="nav-color container-fluid">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="assets/logo/Logo_Betacomio.png" alt="error">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-nav" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Offerte speciali</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Brand</a>
+        </li>
+      </ul>
+
+      <div class="search ms-auto">
+        <form action="" class="d-flex" role="search">
+
+          <div class="input-group">
+            <input name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Cerca" aria-label="Search">
+            <button class="btn rounded" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+      </div>
+
+
+
+      <!-- menu utente -->
+      <ul>
+        <li class="nav-link active dropdown center user-icon">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle text-nav fs-2 me-2"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end riquadro">
+            <li><a class="dropdown-item" routerLink="/login"  href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Register</a></li>
+            <li><a class="dropdown-item" href="#">Carrello</a></li> <!-- se non loggato rimanda al Login -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav> -->
+
+
+
+<div class="search ms-auto">
+  <form action="" class="d-flex" role="search">
+<div id="search-component" class="input-group">
+  <input #searchBox id="search-box" name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Search" aria-label="Search"/>
+  <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search"></i></button>
+</div>
+</form>
+</div>

@@ -35,7 +35,7 @@
 .search-input-nav
   {
     text-decoration: none;
-    background-color: transparent !important; 
+    background-color: transparent !important;
     border: 2px solid white   !important;
   }
 
@@ -43,13 +43,13 @@
 {
   border: 2px solid #FF5722   !important;
 }
-nav .search form button[type='submit']
+nav .search div button[type='submit']
 {
   font-size: 18px;
   color: white;
   background: none;
 }
-nav .search form button[type='submit']:hover
+nav .search div button[type='submit']:hover
 {
   font-size: 18px;
   color:#FF5722;
@@ -57,7 +57,7 @@ nav .search form button[type='submit']:hover
   border-radius: 5px;
 }
 .search-input-nav::placeholder {
-  color: white; 
+  color: white;
 }
 
 @media (max-width: 768px) {

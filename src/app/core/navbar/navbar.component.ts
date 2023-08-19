@@ -1,11 +1,80 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ProductService } from '../../feature/service/product.service';
+import { Observable, Subject, of } from 'rxjs';
+import {
+  debounceTime, distinctUntilChanged, switchMap
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  
+export class NavbarComponent implements OnInit  {
+  products!: Products[];
+  products$!: Observable<Products[]>;
+  private searchTerms = new Subject<string>();
+
+  constructor(private http: HttpClient, private productService: ProductService,private router: Router ) {}
+
+
+  goToProducts(searchTerm: string) {
+  this.productService.setSearchTerm(searchTerm);
+  this.router.navigate(['/products']);
+  this.products$ = this.searchProducts(searchTerm);
 }
+
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
+
+
+
+  searchProducts(term: string): Observable<Products[]> {
+    if (!term.trim()) {
+      // Se il termine di ricerca è vuoto, restituisci un array vuoto.
+      return of([]);
+    }
+    // Aggiungi la tua logica per effettuare la ricerca dei prodotti qui.
+    // Ad esempio, puoi utilizzare HttpClient per effettuare una richiesta HTTP al tuo server API.
+    return this.http.get<Products[]>(`https://localhost:7139/api/VProductDescriptionPrices/GetProductsByCategoryAndName/${term}`);
+  }
+
+  ngOnInit(): void {
+    this.products$ = this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.searchProducts(term)),
+    );
+  }
+
+}
+
+export interface Products {
+  productId: number;
+  name: string;
+  color: string;
+  listPrice: number;
+  thumbNailPhoto: string;
+  ThumbNailPhotoFileName: string;
+  culture: string;
+  description: string;
+  categoryName: string;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
