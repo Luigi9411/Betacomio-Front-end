@@ -27,6 +27,9 @@
       <input #searchBox id="search-box" name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Search" aria-label="Search"/>
       <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search"></i></button>
     </div>
+    <a routerLink="/cart" class="button fancy-button">
+      <em class="material-icons">shopping_cart</em>Checkout
+    </a>
 </div>
 
 
@@ -54,28 +57,4 @@
 
 
 
-      <!--
-      SEARCH
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <div class="search-container">
-            <form action="">
-              <input type="text" id="searchInput" placeholder="Search...">
-              <button id="searchButton"><i class="fas fa-search"></i></button>
-            </form>
-          </div>
-        </li>
-      </ul> -->
 
-      <!-- <div class="search-container">
-        <form action="">
-          <input type="text" id="searchInput" placeholder="Search...">
-          <button id="searchButton"><i class="fas fa-search"></i></button>
-        </form>
-      </div> -->
-
-      <!-- BARRA DI RICERCA
-        <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>  -->

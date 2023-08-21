@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { ProductService } from '../feature/service/product.service';
+import { ProductService } from '../service/product.service';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +13,7 @@ export class ProductsComponent implements OnInit  {
   products!: Products[];
   filteredEmployees: any[] = []; // Lista filtrata degli impiegati
   filters: { id: string, label: string, selected: boolean }[] = [
-    { id: '1', label: 'Mountain Bikes', selected: true },
+    { id: '1', label: 'Mountain Bikes', selected: false },
     { id: '2', label: 'Road Bikes', selected: false },
     { id: '3', label: 'Touring Bikes', selected: false },
     { id: '4', label: 'Jerseys', selected: false },
@@ -33,7 +34,8 @@ export class ProductsComponent implements OnInit  {
     { id: '19', label: 'Chains', selected: false },
   ];
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private productService: ProductService) {}
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private productService: ProductService,
+    private cartService: CartService) {}
 
   ngOnInit(): void {
     this.http.get<any[]>('https://localhost:7139/api/VProductDescriptionPrices')
@@ -48,6 +50,11 @@ export class ProductsComponent implements OnInit  {
       // Elimina eventuali filtri prima di fare la ricerca con il Search
       this.filters.forEach(filter => filter.selected = false);
     });
+  }
+
+  addToCart(product: Products) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 
   //metodo che permette la ricerca con search anche da navbar in pagina
