@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <form #frm="ngForm" (submit)="InsertForm(frm)" ngClass="{error: frm.invalid && frm.dirty}">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Firstname</label>
+          <input #firstNameref="ngModel" type="firstName" class="form-control" name="firstName" [ngModel]="singleNames?.firstName" id="firstName" required minlength="3">
+          <div *ngIf="firstNameref.errors?.['pattern']" class="form-text"> Il nome deve contenere minimo tre lettere</div>
+          <div *ngIf="firstNameref.errors?.['required']" class="form-text"> Il nome è obligatorio </div>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Lastname</label>
+          <input #lastNameref="ngModel" type="lastName" class="form-control" name="lastName" [ngModel]="singleNames?.lastName" id="lastName" required minlength="3">
+          <div *ngIf="lastNameref.errors?.['pattern']" class="form-text">Il cognome deve contenere minimo tre lettere  </div>
+          <div *ngIf="lastNameref.errors?.['required']" class="form-text"> Il cognome è obligatorio </div>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input #phoneref="ngModel" type="phone" class="form-control" name="phone" [ngModel]="singleNames?.phone" required  pattern="^[0-9]{10}$">
+          <div *ngIf="phoneref.errors?.['pattern']" class="form-text"> Il numero è composto da 10 numeri</div>
+          <div *ngIf="phoneref.errors?.['required']" class="form-text"> Il numero è obligatorio </div>
+        </div>
+        <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<ul>
+
+  <li *ngFor="let n of updates">{{ n.firstName }} {{ n.lastName }} {{ n.phone }}</li>
+</ul>

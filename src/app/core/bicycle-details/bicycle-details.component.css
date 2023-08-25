@@ -18,3 +18,17 @@
 .bg-col {
   background-color: rgba(203, 198, 198, 0.23);
 }
+
+.img-container {
+  position: relative;
+  text-align: center;
+}
+
+
+.img-container h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}

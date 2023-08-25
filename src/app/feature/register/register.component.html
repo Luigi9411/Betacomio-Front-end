@@ -14,7 +14,7 @@
           <div *ngIf="passwordref.errors?.['pattern']" class="form-text"> La password prevede otto caratteri tra cui minimo un carattere speciale e un numero</div>
           <div *ngIf="passwordref.errors?.['required']" class="form-text"> L'indirizzo email è obligatorio </div>
         </div>
-        <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
+        <button type="submit"  routerLink="/register-details" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
@@ -23,7 +23,5 @@
 
 <ul>
 
-  <li *ngFor="let n of logs">{{ n.emailAddress }} {{ n.password }}</li>
+  <li *ngFor="let n of registers">{{ n.emailAddress }} {{ n.password }}</li>
 </ul>
-
-
