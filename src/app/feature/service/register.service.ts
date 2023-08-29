@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs'; //s
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { Observable } from 'rxjs';
 export class RegisterService {
 
   headerOptions = new HttpHeaders().set('Content-Type', 'application/json');
+  private Email = new BehaviorSubject<string>('');
+  private baseUrl = 'https://localhost:7139/api/Customers';
+  private emptyVariable: string = "";
 
   constructor(private http: HttpClient) {}
 
@@ -19,5 +23,25 @@ export class RegisterService {
       headers: this.headerOptions,
       observe: 'response' // To get the full HTTP response, including the status code.
     });
+  }
+
+  RegisterBetacomio2(name: string, surname: string, phone: string, email: string) : Observable<any>{
+    const body = { FirstName: name, LastName: surname, Phone: phone, passwordHash: this.emptyVariable, passwordSalt: this.emptyVariable};
+    const url = `${this.baseUrl}/PutCustomerByEmail/${email}`;
+
+    return this.http.put(url, body, {
+      headers: this.headerOptions,
+      observe: 'response'
+    });
+
+  }
+
+  
+  setEmail(EmailAddress: string) {
+    this.Email.next(EmailAddress);
+  }
+
+  getEmail() {
+    return this.Email.asObservable();
   }
 }
