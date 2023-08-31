@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">Phone</label>
-          <input #phoneref="ngModel" #phoneref2 type="phone" class="form-control" name="phone" [ngModel]="singleNames?.phone" required  pattern="^[0-9]{10}$">
+          <input #phoneref="ngModel" #phoneref2 type="phone" class="form-control" name="phone" [ngModel]="singleNames?.phone" required  pattern="^[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}$">
           <div *ngIf="phoneref.errors?.['pattern']" class="form-text"> Il numero è composto da 10 numeri</div>
           <div *ngIf="phoneref.errors?.['required']" class="form-text"> Il numero è obligatorio </div>
         </div>
@@ -26,10 +26,7 @@
   </div>
 </div>
 
-<p>**{{receivedEmail}}</p>
 
 
-<ul>
 
-  <li *ngFor="let n of updates">{{ n.firstName }} {{ n.lastName }} {{ n.phone }}</li>
-</ul>
+

@@ -40,8 +40,26 @@ export class RegisterDetailComponent implements OnInit{
     );
   }
 
+  loadCustomerDataByEmail() {
+    this.reg.getCustomerDataByEmail(this.receivedEmail).subscribe(
+      (data) => {
+        if (data) {
+          this.singleNames = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phone: data.phone,
+          };
+        }
+      },
+      (error) => {
+        console.error('Error loading customer data:', error);
+      }
+    );
+  }
+
   ngOnInit() {
     this.receiveEmail();
+    this.loadCustomerDataByEmail();
   }
 
   receiveEmail(){
@@ -55,5 +73,5 @@ export class RegisterDetailComponent implements OnInit{
 export interface CompleteFormTwo {
   firstName: string;
   lastName: string;
-  phone:number;
+  phone:string;
 }

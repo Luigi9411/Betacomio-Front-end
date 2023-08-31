@@ -36,7 +36,12 @@ export class RegisterService {
 
   }
 
-  
+  getCustomerDataByEmail(email: string): Observable<any> {
+    const url = `https://localhost:7139/api/Customers/GetCustomerByEmail/${email}`;
+    return this.http.get(url);
+  }
+
+
   setEmail(EmailAddress: string) {
     this.Email.next(EmailAddress);
   }
