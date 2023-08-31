@@ -22,6 +22,8 @@ import { ProductDetailsComponent } from './feature/products-detail/products-deta
 import { CartComponent } from './feature/cart/cart.component';
 import { RegisterComponent } from './feature/register/register.component';
 import { RegisterDetailComponent } from './feature/register-detail/register-detail.component';
+import { RegisterAdminComponent } from './feature/register-admin/register-admin.component';
+import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { RegisterDetailComponent } from './feature/register-detail/register-deta
     CartComponent,
     RegisterComponent,
     RegisterDetailComponent,
+    RegisterAdminComponent,
+    RegisterAdminDetailComponent
   ],
   imports: [
     BrowserModule,

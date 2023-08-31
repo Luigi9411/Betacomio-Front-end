@@ -8,6 +8,8 @@ import { BicycleDetailsComponent } from './core/bicycle-details/bicycle-details.
 import { CartComponent } from './feature/cart/cart.component';
 import { RegisterComponent } from './feature/register/register.component';
 import { RegisterDetailComponent } from './feature/register-detail/register-detail.component';
+import { RegisterAdminComponent } from './feature/register-admin/register-admin.component';
+import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   {path: "register", component: RegisterComponent},
   {path: "register-details", component: RegisterDetailComponent},
+  {path: "register-admin", component: RegisterAdminComponent},
+  {path: "register-admin-details", component: RegisterAdminDetailComponent},
 ];
 
 @NgModule({
