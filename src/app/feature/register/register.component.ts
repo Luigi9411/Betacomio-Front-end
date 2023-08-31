@@ -40,6 +40,8 @@ export class RegisterComponent {
   sendEmail(email : string) {
     this.reg.setEmail(email);
   }
+
+  
 }
 
 export interface CompleteFormTwo {

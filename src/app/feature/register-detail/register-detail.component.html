@@ -20,7 +20,7 @@
           <div *ngIf="phoneref.errors?.['pattern']" class="form-text"> Il numero è composto da 10 numeri</div>
           <div *ngIf="phoneref.errors?.['required']" class="form-text"> Il numero è obligatorio </div>
         </div>
-        <button type="submit" (click)="PutCredentials(nameref, lastnameref, phoneref2)" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
+        <button type="submit" routerLink="/" (click)="PutCredentials(nameref, lastnameref, phoneref2)" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

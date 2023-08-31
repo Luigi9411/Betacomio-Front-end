@@ -20,13 +20,25 @@ export class LoginComponent {
       switch (resp.status) {
         case HttpStatusCode.Ok:
           this.srv.SetAuthorizationToken(usr.value, pwd.value);
+          sessionStorage.setItem('Role', "Customer");
           this.router.navigate(['/']); // Reindirizza l'utente alla pagina "home"
           break;
         case HttpStatusCode.BadRequest:
           alert('Invalid Request !!!');
           break;
+          case HttpStatusCode.NoContent:
+          this.srv.SetAuthorizationToken(usr.value, pwd.value);
+          sessionStorage.setItem('Role', "Admin");
+        alert(sessionStorage.getItem('Role'));
+        break;
+
       }
     });
+  }
+
+  isAdmin(): boolean {
+    const userRole = sessionStorage.getItem("Role");
+    return userRole === "Admin";
   }
 
   InsertForm(frm: NgForm) {

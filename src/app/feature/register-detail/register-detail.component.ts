@@ -21,7 +21,6 @@ export class RegisterDetailComponent implements OnInit{
 
   PutCredentials(name: HTMLInputElement, surname: HTMLInputElement, phone: HTMLInputElement){
 
-    alert(this.receivedEmail);
     this.reg.RegisterBetacomio2(name.value, surname.value, phone.value, this.receivedEmail).subscribe(
       (resp) => {
         if (resp.status === 200) {
