@@ -10,6 +10,7 @@ import { RegisterComponent } from './feature/register/register.component';
 import { RegisterDetailComponent } from './feature/register-detail/register-detail.component';
 import { RegisterAdminComponent } from './feature/register-admin/register-admin.component';
 import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
+import { AdminPageComponent } from './core/admin-page/admin-page.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "register-details", component: RegisterDetailComponent},
   {path: "register-admin", component: RegisterAdminComponent},
   {path: "register-admin-details", component: RegisterAdminDetailComponent},
+  {path: "admin-page", component: AdminPageComponent},
 ];
 
 @NgModule({

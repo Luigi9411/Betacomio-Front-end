@@ -46,4 +46,5 @@ export class RegisterAdminComponent {
 export interface CompleteFormTwo {
   emailAddress: string;
   password: string;
+  userRole: string;
 }

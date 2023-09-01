@@ -24,6 +24,7 @@ import { RegisterComponent } from './feature/register/register.component';
 import { RegisterDetailComponent } from './feature/register-detail/register-detail.component';
 import { RegisterAdminComponent } from './feature/register-admin/register-admin.component';
 import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
+import { AdminPageComponent } from './core/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RegisterAdminDetailComponent } from './feature/register-admin-detail/re
     RegisterComponent,
     RegisterDetailComponent,
     RegisterAdminComponent,
-    RegisterAdminDetailComponent
+    RegisterAdminDetailComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

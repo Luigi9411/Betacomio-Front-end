@@ -68,6 +68,8 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -92,7 +94,18 @@ export class SrvproductService {
 
     sessionStorage.setItem("AuthBasic","Basic" + window.btoa(user + ':' + pwd))
   }
+
+  //logout metodo
+  logout() {
+    // Rimuovi il token di autenticazione e altre informazioni dell'utente
+    sessionStorage.removeItem("AuthBasic")
+    sessionStorage.removeItem('Role');
+
+    // Reindirizza l'utente alla pagina di login o ad un'altra pagina appropriata
+
+  }
 }
+
 
 interface Credentials {
   username: string;
