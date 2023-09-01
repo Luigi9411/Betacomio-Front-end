@@ -21,6 +21,7 @@ export class LoginComponent {
         case HttpStatusCode.Ok:
           this.srv.SetAuthorizationToken(usr.value, pwd.value);
           sessionStorage.setItem('Role', "User");
+          sessionStorage.setItem('Role', "User");
           this.router.navigate(['/']); // Reindirizza l'utente alla pagina "home"
           break;
           case HttpStatusCode.NoContent:
@@ -46,6 +47,7 @@ export class LoginComponent {
     );
   }
 
+
   isAdmin(): boolean {
     const userRole = sessionStorage.getItem("Role");
     return userRole === "Admin";
@@ -65,5 +67,13 @@ export interface CompleteForm {
   emailAddress: string;
   password: string;
 }
+
+
+
+
+
+
+
+
 
 

@@ -25,7 +25,7 @@ export class RegisterComponent {
           alert('Invalid Request !!!');
         } else if(resp.status == 204){
           alert("Invalid Email or password");
-        } 
+        }
         else {
           // Handle other status codes as needed.
         }
@@ -41,7 +41,7 @@ export class RegisterComponent {
     this.reg.setEmail(email);
   }
 
-  
+
 }
 
 export interface CompleteFormTwo {
