@@ -15,8 +15,8 @@ export class RegisterAdminComponent {
   constructor(private reg: RegisterService, private router: Router) {}
 
 
-  PostCredentials(usr: HTMLInputElement, pwd: HTMLInputElement) {
-    this.reg.RegisterBetacomio(usr.value, pwd.value).subscribe(
+  PostCredentials(usr: HTMLInputElement, pwd: HTMLInputElement, role: HTMLSelectElement) {
+    this.reg.RegisterBetacomioAdmin(usr.value, pwd.value, role.value).subscribe(
       (resp) => {
         if (resp.status === 200) {
           // Registration was successful, you can navigate to a success page.
@@ -46,4 +46,5 @@ export class RegisterAdminComponent {
 export interface CompleteFormTwo {
   emailAddress: string;
   password: string;
+  userRole: string;
 }

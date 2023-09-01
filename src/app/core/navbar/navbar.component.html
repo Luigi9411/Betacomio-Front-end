@@ -15,11 +15,11 @@
         <li class="nav-item">
           <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Shop</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active text-nav" routerLink="/products" aria-current="page" href="#">Offerte speciali</a>
+        <li *ngIf="isAdmin() || isUser()" class="nav-item">
+          <a class="nav-link active text-nav" (click)="onLogout()"  routerLink="/products" aria-current="page" href="#">Logout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-nav" routerLink="/" aria-current="page" href="#">Brand</a>
+          <a class="nav-link active text-nav" routerLink="/admin-page" aria-current="page" href="#">Brand</a>
         </li>
       </ul>
       <div class="search ms-auto d-flex">
@@ -27,7 +27,7 @@
       <input #searchBox id="search-box" name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Search" aria-label="Search"/>
       <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search"></i></button>
     </div>
-    <a routerLink="/cart" class="button fancy-button">
+    <a routerLink="/cart" *ngIf="isAdmin() || isUser()" class="button fancy-button">
       <em class="material-icons">shopping_cart</em>Checkout
     </a>
 </div>
@@ -41,11 +41,16 @@
             <i class="bi bi-person-circle text-nav fs-2 me-2"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end riquadro">
-            <li><a class="dropdown-item" routerLink="/login"  href="#">Login</a></li>
-            <li><a class="dropdown-item" routerLink="/register" href="#">Register</a></li>
+            <li>
+              <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/login"  href="#">Login</a>
+            </li>
+            <li>
+              <a class="dropdown-item" *ngIf="isAdmin()" routerLink="/register-admin" href="#">New User</a>
+              <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/register" href="#">Register</a>
+            </li>
             <li><a class="dropdown-item" href="#">Shopping Cart</a></li> <!-- se non loggato rimanda al Login -->
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Options</a></li>
+            <li *ngIf="isAdmin() || isUser()"><a class="dropdown-item" (click)="onLogout()"  href="#">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -53,8 +58,3 @@
     </div>
   </div>
 </nav>
-
-
-
-
-

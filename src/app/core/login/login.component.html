@@ -23,6 +23,10 @@
   L'utente è un amministratore.
 </div>
 
+<div *ngIf="isUser()">
+  L'utente è loggato.
+</div>
+
 
 <ul>
   <li *ngFor="let n of logs">{{ n.emailAddress }} {{ n.password }}</li>

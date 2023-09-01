@@ -16,7 +16,18 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   RegisterBetacomio(username: string, password: string): Observable<any> {
-    const body = { EmailAddress: username, PasswordHash: password };
+    const role: string = 'User';
+    const body = { EmailAddress: username, PasswordHash: password, Role: role };
+
+    // Assuming your registration endpoint is '/api/register' - adjust as needed.
+    return this.http.post('https://localhost:7139/api/NewCustomers', body, {
+      headers: this.headerOptions,
+      observe: 'response' // To get the full HTTP response, including the status code.
+    });
+  }
+
+  RegisterBetacomioAdmin(username: string, password: string, role: string): Observable<any> {
+    const body = { EmailAddress: username, PasswordHash: password, Role: role };
 
     // Assuming your registration endpoint is '/api/register' - adjust as needed.
     return this.http.post('https://localhost:7139/api/NewCustomers', body, {
