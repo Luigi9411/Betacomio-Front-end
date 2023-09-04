@@ -60,10 +60,40 @@ nav .search div button[type='submit']:hover
   color: white;
 }
 
+.navbar-toggler {
+  background-color: #272D26 !important;
+  border-color:  #272D26 !important;
+}
+
+.bi-list{
+  color: #FF5722;
+  font-size: 35px;
+
+}
+
+.nav-link.active.dropdown.center.user-icon {
+  padding: 0; /* Rimuove il padding predefinito */
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.user-icon-link {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   /* Nascondi il dropdown menu */
-  .dropdown {
-    display: none;
+
+  .bar-lenght{
+    max-width: 190px;
   }
 }
 
@@ -72,6 +102,9 @@ nav .search div button[type='submit']:hover
   /* Cambia il colore di sfondo del bottone del toggler */
   .navbar-toggler {
     background-color: white;
+  }
+  .bar-lenght{
+    max-width: 190px;
   }
 }
 

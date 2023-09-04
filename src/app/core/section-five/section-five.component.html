@@ -1,6 +1,6 @@
 <section class="bg-dark text-white py-4">
   <div class="container-fluid px-5">
-    <h2 class="py-3">Best-selling products</h2>
+    <h2 class="py-3">Best-selling products <span class="badge badge-custom">New</span></h2>
     <h6 class="sf-5 pb-2 text-br mb-3">Amazing products on offer available now</h6>
     <ul class="row row-cols-2 row-cols-sm-3 row-cols-xxl-6 g-4">
       <li *ngFor="let p of filteredProducts; let idx = index" class="col"  (click)="goToProducts(p.name)">

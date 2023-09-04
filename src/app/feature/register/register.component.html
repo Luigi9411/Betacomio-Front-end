@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-4">
       <form #frm="ngForm" ngClass="{error: frm.invalid && frm.dirty}">
@@ -17,5 +17,47 @@
         <button type="submit" (click)="PostCredentials(emailref, pwdref); sendEmail(emailref.value)" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
       </form>
     </div>
+  </div>
+</div>
+
+
+<ul>
+
+  <li *ngFor="let n of registers">{{ n.emailAddress }} {{ n.password }}</li>
+</ul> -->
+
+<div class="container container-login">
+  <div class="row row-login">
+    <h2>Registrati qui:</h2>
+    <div class="col-12">
+      <form #frm="ngForm" (submit)="InsertForm(frm)" ngClass="{error: frm.invalid && frm.dirty}">
+        <div class="form-group mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input #emailAddressref="ngModel" type="email" class="form-control" name="emailAddress" [ngModel]="singleNames?.emailAddress" id="exampleInputEmail1" required pattern="[a-zA-Z]{3,}@([a-zA-Z]{3,}.)+com">
+          <div *ngIf="emailAddressref.errors?.['pattern']" class="form-text"> L'indirizzo email non è nel formato corretto </div>
+          <div *ngIf="emailAddressref.errors?.['required']" class="form-text"> L'indirizzo email è obligatorio </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input #passwordref="ngModel" type="password" class="form-control" name="password" [ngModel]="singleNames?.password" required pattern="[a-zA-Z0-9!@#$%^&]{8,}$">
+          <div *ngIf="passwordref.errors?.['pattern']" class="form-text"> La password prevede otto caratteri tra cui minimo un carattere speciale e un numero</div>
+          <div *ngIf="passwordref.errors?.['required']" class="form-text"> L'indirizzo email è obligatorio </div>
+        </div>
+        <button type="submit" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <a class="" href="#">
+      <img class="logo-img" src="assets/logo/Logo_Betacomio.png" alt="error">
+    </a>
+    <h5 class="small-font">Trattamento dei dati dell'utente</h5>
+    <p class="small-font"> L' art. 30 del Regolamento (EU) n. 679/2016 (di seguito “RGPD”) prevede tra gli adempimenti principali del titolare e del responsabile del trattamento la tenuta del registro delle attività di trattamento. 
+
+      E' un documento contenente le principali informazioni (specificatamente individuate dall'art. 30 del RGPD) relative alle operazioni di trattamento svolte dal titolare e, se nominato, dal responsabile del trattamento (sul registro del responsabile, vedi, in particolare, il punto 6). 
+      
+      Costituisce uno dei principali elementi di accountability del titolare, in quanto strumento idoneo a fornire un quadro aggiornato dei trattamenti in essere all' interno della propria organizzazione, indispensabile per ogni attività di valutazione o analisi del rischio e dunque preliminare rispetto a tali attività. 
+      
+      Il registro deve avere forma scritta, anche elettronica, e deve essere esibito su richiesta al Garante.</p>
   </div>
 </div>
