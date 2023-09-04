@@ -3,6 +3,7 @@ import { CartService } from '../../feature/service/cart.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -96,6 +97,7 @@ for (let i = 0; i < this.items.length; i++) {
 
   return total;
   }
+
 }
 
 

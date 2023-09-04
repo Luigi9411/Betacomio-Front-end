@@ -2,6 +2,7 @@ import { Component, OnInit  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ProductService } from '../../feature/service/product.service';
+import { SrvproductService } from 'src/app/feature/service/srvproduct.service';
 import { Observable, Subject, of } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
@@ -17,24 +18,41 @@ export class NavbarComponent implements OnInit  {
   products$!: Observable<Products[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private http: HttpClient, private productService: ProductService,private router: Router ) {}
+  constructor(private http: HttpClient, private productService: ProductService,private router: Router, private srv: SrvproductService ) {}
 
 
   goToProducts(searchTerm: string) {
   this.productService.setSearchTerm(searchTerm);
   this.router.navigate(['/products']);
   this.products$ = this.searchProducts(searchTerm);
+
+  // Scroll to the top of the page
+  window.scrollTo(0, 0);
 }
 
   search(term: string): void {
     this.searchTerms.next(term);
   }
 
+  isAdmin(): boolean {
+    const userRole = sessionStorage.getItem("Role");
+    return userRole === "Admin";
+  }
+
+  isUser(): boolean {
+    const userRole = sessionStorage.getItem("Role");
+    return userRole === "User";
+  }
+
+  onLogout() {
+    this.srv.logout();
+    this.router.navigate(['/']);
+  }
 
 
   searchProducts(term: string): Observable<Products[]> {
     if (!term.trim()) {
-      // Se il termine di ricerca è vuoto, restituisci un array vuoto.
+      // Se il termine di ricerca Ã¨ vuoto, restituisci un array vuoto.
       return of([]);
     }
     // Aggiungi la tua logica per effettuare la ricerca dei prodotti qui.
@@ -63,7 +81,6 @@ export interface Products {
   description: string;
   categoryName: string;
 }
-
 
 
 

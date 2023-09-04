@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <form #frm="ngForm" ngClass="{error: frm.invalid && frm.dirty}">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input #emailAddressref="ngModel" #emailref type="email" class="form-control" name="emailAddress" [ngModel]="singleNames?.emailAddress" id="exampleInputEmail1" required pattern="[a-zA-Z][a-zA-Z-_0-9]{2,}@([a-zA-Z-_]{3,}.)+[a-zA-Z]{2,}">
+          <div *ngIf="emailAddressref.errors?.['pattern']" class="form-text">The Email Address is in an invalid format</div>                                              
+          <div *ngIf="emailAddressref.errors?.['required']" class="form-text">The Email Address is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input #passwordref="ngModel" type="password" #pwdref class="form-control" name="password" [ngModel]="singleNames?.password" required pattern="^(?=.*[0-9])(?=.*[!@#$%^&_-])[a-zA-Z0-9!@#$%^&_-]{8,}$">
+          <div *ngIf="passwordref.errors?.['pattern']" class="form-text">The password must contain 8 characters with a minimum of one special character and a number</div>
+          <div *ngIf="passwordref.errors?.['required']" class="form-text">The Email Address is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="userRole" class="form-label">Select Role</label>
+          <select #userRoleref="ngModel" #roleref class="form-select" name="userRole" [ngModel]="singleNames?.userRole" required>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+          <div *ngIf="userRoleref.errors?.['required']" class="form-text">Please select a role</div>
+        </div>
+        <button type="submit" (click)="PostCredentials(emailref, pwdref, roleref); sendEmail(emailref.value)" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

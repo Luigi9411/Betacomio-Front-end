@@ -3,19 +3,20 @@ import { RegisterService } from 'src/app/feature/service/register.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-register-admin',
+  templateUrl: './register-admin.component.html',
+  styleUrls: ['./register-admin.component.css']
 })
-export class RegisterComponent {
+export class RegisterAdminComponent {
+
   // Remove the 'registers' array as it's not being used.
   singleNames: CompleteFormTwo | null = null;
 
   constructor(private reg: RegisterService, private router: Router) {}
 
 
-  PostCredentials(usr: HTMLInputElement, pwd: HTMLInputElement) {
-    this.reg.RegisterBetacomio(usr.value, pwd.value).subscribe(
+  PostCredentials(usr: HTMLInputElement, pwd: HTMLInputElement, role: HTMLSelectElement) {
+    this.reg.RegisterBetacomioAdmin(usr.value, pwd.value, role.value).subscribe(
       (resp) => {
         if (resp.status === 200) {
           // Registration was successful, you can navigate to a success page.
@@ -40,11 +41,10 @@ export class RegisterComponent {
   sendEmail(email : string) {
     this.reg.setEmail(email);
   }
-
-
 }
 
 export interface CompleteFormTwo {
   emailAddress: string;
   password: string;
+  userRole: string;
 }

@@ -10,6 +10,14 @@
   }
 }
 
+.dim{
+  width: 200px;
+}
+
+li{
+  list-style-type: none;
+  cursor: pointer;
+}
 .badge-custom{
   background-color: #ff5622d4;
 }

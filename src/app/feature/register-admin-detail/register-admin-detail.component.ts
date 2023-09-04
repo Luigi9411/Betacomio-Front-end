@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from 'src/app/feature/service/register.service';
 
-
 @Component({
-  selector: 'app-register-detail',
-  templateUrl: './register-detail.component.html',
-  styleUrls: ['./register-detail.component.css']
+  selector: 'app-register-admin-detail',
+  templateUrl: './register-admin-detail.component.html',
+  styleUrls: ['./register-admin-detail.component.css']
 })
-export class RegisterDetailComponent implements OnInit{
+export class RegisterAdminDetailComponent implements OnInit {
+
   updates: CompleteFormTwo[] = [];
   singleNames: CompleteFormTwo | null = null
   receivedEmail: string = '';
@@ -21,6 +21,7 @@ export class RegisterDetailComponent implements OnInit{
 
   PutCredentials(name: HTMLInputElement, surname: HTMLInputElement, phone: HTMLInputElement){
 
+    alert(this.receivedEmail);
     this.reg.RegisterBetacomio2(name.value, surname.value, phone.value, this.receivedEmail).subscribe(
       (resp) => {
         if (resp.status === 200) {

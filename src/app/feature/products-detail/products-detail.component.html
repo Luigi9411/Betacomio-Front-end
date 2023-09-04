@@ -1,1 +1,69 @@
-<p>products-detail works!</p>
+<pre class="container">
+
+    <p>{{products | json}}</p>
+  </pre>
+  <ul class="d-flex flex-wrap mg-ul">
+    <li *ngFor="let product of products">
+      <div class="card my-4 mx-4" style="width: 18rem;">
+        <img class="card-img-top img-db" [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
+        <div class="card-body">
+          <p class="card-text">{{ product.categoryName }}</p>
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">Price: {{ product.listPrice }}€</p>
+          <p class="card-text">{{ product.color }}</p>
+          <p class="card-text">{{ product.culture }}</p>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <pre>
+  
+    <ul class="d-flex flex-wrap mg-ul container">
+      <li *ngIf="products.length > 0">
+        <div class="card my-4 mx-4" style="width: 18rem;">
+          <img class="card-img-top img-db" [src]="getThumbnailImageURL(products[0].thumbNailPhoto)" alt="Thumbnail">
+          <div class="card-body">
+            <p class="card-text">{{ products[0].categoryName }}</p>
+            <h5 class="card-title">{{ products[0].name }}</h5>
+            <p class="card-text">Price: {{ products[0].listPrice }}€</p>
+            <p class="card-text">{{ products[0].color }}</p>
+            <p class="card-text">{{ products[0].culture }}</p>
+            <p class="card-text">{{ products[0].description }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </pre>
+  
+  <div class="container">
+  
+    <div *ngFor="let product of products">
+        <img  [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
+        <div >
+          <p >{{ product.categoryName }}</p>
+          <h5>{{ product.name }}</h5>
+          <p>Price: {{ product.listPrice }}€</p>
+          <p>{{ product.color }}</p>
+          <p>{{ product.culture }}</p>
+          <p>{{ product.description }}</p>
+        </div>
+    </div>
+  </div>
+  <h3>merda</h3>
+  <ul class="d-flex flex-wrap mg-ul container">
+    <li *ngIf="products.length > 0">
+      <div class="card my-4 mx-4" style="width: 18rem;">
+        <img class="card-img-top img-db" [src]="getThumbnailImageURL(products[0].thumbNailPhoto)" alt="Thumbnail">
+        <div class="card-body">
+          <p class="card-text">{{ products[0].categoryName }}</p>
+          <h5 class="card-title">{{ products[0].name }}</h5>
+          <p class="card-text">Price: {{ products[0].listPrice }}€</p>
+          <p class="card-text">{{ products[0].color }}</p>
+          <p class="card-text">{{ products[0].culture }}</p>
+          <p class="card-text">{{ products[0].description }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+  
