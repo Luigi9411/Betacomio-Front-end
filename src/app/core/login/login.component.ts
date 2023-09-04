@@ -15,6 +15,18 @@ export class LoginComponent {
 
   constructor(private srv: SrvproductService, private router: Router) {}
 
+  // GetCredentials(usr: HTMLInputElement, pwd:HTMLInputElement ) {
+  //   this.srv.LoginBetacomio(usr.value, pwd.value).subscribe((resp) => {
+  //     switch (resp.status) {
+  //       case HttpStatusCode.Ok:
+  //         this.srv.SetAuthorizationToken(usr.value,pwd.value)
+  //         break;
+  //       case HttpStatusCode.BadRequest:
+  //         alert('Invalid Request !!!');
+  //         break;
+  //     }
+  //   })
+  // }
   GetCredentials(usr: HTMLInputElement, pwd: HTMLInputElement) {
     this.srv.LoginBetacomio(usr.value, pwd.value).subscribe((resp) => {
       switch (resp.status) {
