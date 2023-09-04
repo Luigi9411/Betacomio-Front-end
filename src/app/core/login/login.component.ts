@@ -14,18 +14,18 @@ export class LoginComponent {
 
   constructor(private srv: SrvproductService) {}
 
-  GetCredentials(usr: HTMLInputElement, pwd:HTMLInputElement ) {
-    this.srv.LoginBetacomio(usr.value, pwd.value).subscribe((resp) => {
-      switch (resp.status) {
-        case HttpStatusCode.Ok:
-          this.srv.SetAuthorizationToken(usr.value,pwd.value)
-          break;
-        case HttpStatusCode.BadRequest:
-          alert('Invalid Request !!!');
-          break;
-      }
-    })
-  }
+  // GetCredentials(usr: HTMLInputElement, pwd:HTMLInputElement ) {
+  //   this.srv.LoginBetacomio(usr.value, pwd.value).subscribe((resp) => {
+  //     switch (resp.status) {
+  //       case HttpStatusCode.Ok:
+  //         this.srv.SetAuthorizationToken(usr.value,pwd.value)
+  //         break;
+  //       case HttpStatusCode.BadRequest:
+  //         alert('Invalid Request !!!');
+  //         break;
+  //     }
+  //   })
+  // }
 
   InsertForm(frm: NgForm) {
     this.logs.push(frm.value);
@@ -36,5 +36,3 @@ export interface CompleteForm {
   emailAddress: string;
   password: string;
 }
-
-
