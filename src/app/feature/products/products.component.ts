@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit  {
   products!: Products[];
-  filteredEmployees: any[] = []; // Lista filtrata degli impiegati
+  filteredEmployees: Products[] = []; // Lista filtrata degli impiegati
   filters: { id: string, label: string, selected: boolean }[] = [
     { id: '1', label: 'Mountain Bikes', selected: false },
     { id: '2', label: 'Road Bikes', selected: false },

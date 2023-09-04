@@ -9,16 +9,26 @@ import { ProductService } from '../service/product.service';
   styleUrls: ['./products-detail.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  products: Products[] = [];
+  product: Product = {
+  productId: 0,
+  name: '',
+  color: '',
+  listPrice: 0,
+  thumbNailPhoto: '',
+  ThumbNailPhotoFileName: '',
+  culture: '',
+  description: '',
+  categoryName: ''
+  };
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer, private productService: ProductService) {}
 
   ngOnInit(): void {
     const productId = this.productService.getSelectedProductId()?.toString();
-    this.http.get<Products[]>('https://localhost:7139/api/VProductDescriptionPrices/${productId}')
+    this.http.get<Product>(`https://localhost:7139/api/VProductDescriptionPrices/${productId}`)
     .subscribe(data => {
       console.log(data)
-      this.products = data;
+      this.product = data;
     });
   }
 
@@ -31,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
 
 }
 
-export interface Products {
+export interface Product {
   productId: number;
   name: string;
   color: string;

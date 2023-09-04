@@ -1,8 +1,22 @@
-<pre class="container">
+<!-- <pre class="container">
 
-    <p>{{products | json}}</p>
-  </pre>
-  <ul class="d-flex flex-wrap mg-ul">
+    <p>{{product | json}}</p>
+  </pre> -->
+
+  <div class="card my-4 mx-4" style="width: 18rem;">
+    <img class="card-img-top img-db" [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
+    <div class="card-body">
+      <p class="card-text">{{ product.categoryName }}</p>
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">Price: {{ product.listPrice }}€</p>
+      <p class="card-text">{{ product.color }}</p>
+      <p class="card-text">{{ product.culture }}</p>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+
+
+
+  <!-- <ul class="d-flex flex-wrap mg-ul">
     <li *ngFor="let product of products">
       <div class="card my-4 mx-4" style="width: 18rem;">
         <img class="card-img-top img-db" [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
@@ -65,5 +79,5 @@
         </div>
       </div>
     </li>
-  </ul>
+  </ul> -->
   
