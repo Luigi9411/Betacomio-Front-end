@@ -1,11 +1,16 @@
-.mg-t{
-  margin-top: 90px;
+
+
+
+ .mg-t{
+  margin-top: 80px;
 }
 
-.filter{
-  margin: 1em 3em;
-  width: 150px;
+.filters {
+  background-color: #b6b6b6a9; /* Imposta il colore di sfondo del menu laterale */
+  padding: 20px;
+  border-right: 1px solid #ddd;
 }
+
 
 .mg-ul{
   margin-left: 3em;
@@ -21,4 +26,86 @@ li{
 
 .text-found{
   margin: 5em 12em;
+}
+
+.filter-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filter {
+  margin-bottom: 10px;
+}
+
+.filter label {
+  font-size: 14px;
+}
+
+
+.filter input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+/* Stile personalizzato per la checkbox quando è selezionata */
+.filter input[type="checkbox"]:checked {
+  background-color: #FF5722;
+  border-color: #FF5722;
+}
+
+/* Nascondi il controllo predefinito della checkbox */
+.filter input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5a5a5a;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Stile personalizzato per l'icona della spunta */
+.filter input[type="checkbox"]:checked::after {
+  content: "\2713";
+  font-family: 'Bootstrap Icons';
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion{
+  margin-top: 10px;
+}
+
+/* Stile per l'accordion (aperto e chiuso con gli stessi colori) */
+.accordion-button {
+  background-color: #ff5622d4 !important; /* Cambia il colore di sfondo e usa !important per sovrascrivere Bootstrap */
+  border-color: #ff5622db !important; /* Cambia il colore del bordo e usa !important per sovrascrivere Bootstrap */
+}
+
+/* Stile per schermi più piccoli (meno di 900px) */
+@media (max-width: 900px) {
+  .showhidefilter {
+    display: none; /* Nascondi il menu laterale */
+  }
+  .accordion {
+    display: block; /* Visualizza l'accordion */
+  }
+}
+
+
+
+/* Stile per schermi grandi (900px e oltre) */
+@media (min-width: 900px) {
+  .showhidefilter {
+    display: block; /* Visualizza il menu laterale */
+  }
+  .accordion {
+    display: none; /* Visualizza l'accordion */
+  }
 }

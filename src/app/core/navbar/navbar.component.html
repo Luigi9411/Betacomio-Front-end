@@ -5,7 +5,7 @@
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <i class="bi bi-list"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -23,37 +23,39 @@
         </li>
       </ul>
       <div class="search ms-auto d-flex">
-    <div id="search-component" class="input-group">
-      <input #searchBox id="search-box" name="searched" class="form-control me-2 search-input-nav border-0 rounded-3 text-white" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search"></i></button>
-    </div>
-    <a routerLink="/cart" *ngIf="isAdmin() || isUser()" class="button fancy-button">
-      <em class="material-icons">shopping_cart</em>Checkout
-    </a>
-</div>
-
-
-
-      <!-- menu utente -->
-      <ul>
-        <li class="nav-link active dropdown center user-icon">
-          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle text-nav fs-2 me-2"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end riquadro">
-            <li>
-              <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/login"  href="#">Login</a>
-            </li>
-            <li>
-              <a class="dropdown-item" *ngIf="isAdmin()" routerLink="/register-admin" href="#">New User</a>
-              <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/register" href="#">Register</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Shopping Cart</a></li> <!-- se non loggato rimanda al Login -->
-            <li><hr class="dropdown-divider"></li>
-            <li *ngIf="isAdmin() || isUser()"><a class="dropdown-item" (click)="onLogout()"  href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+        <ul class="lista" style="list-style: none; padding: 0; margin: 0; display: flex; align-items: center;">
+          <li style="margin-right: 10px;">
+            <!-- searchbar -->
+            <div id="search-component" class="input-group">
+              <input #searchBox id="search-box" name="searched" class="form-control search-input-nav border-0 rounded-3 text-white bar-lenght" type="search" placeholder="Search" aria-label="Search"/>
+              <button class="btn rounded" type="submit" (click)="goToProducts(searchBox.value)"><i class="bi bi-search "></i></button>
+            </div>
+          </li>
+          <li style="margin-right: 10px;">
+            <!-- icona carrello -->
+            <a routerLink="/cart"  *ngIf="isAdmin() || isUser()" class="button fancy-button mt-3">
+              <em class="material-icons "><i class="bi bi-cart text-nav fs-2"></i></em>
+            </a>
+          </li>
+          <li class="nav-link user-icon dropdown mb-1 pb-2">
+            <a class="nav-link user-icon-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle text-nav fs-2 me-2"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg-end riquadro" style="padding: 10px;">
+              <li>
+                <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/login"  href="#">Login</a>
+              </li>
+              <li>
+                <a class="dropdown-item" *ngIf="isAdmin()" routerLink="/register-admin" href="#">New User</a>
+                <a class="dropdown-item" *ngIf="!isAdmin() && !isUser()" routerLink="/register" href="#">Register</a>
+              </li>
+              <li><a class="dropdown-item" href="#">Shopping Cart</a></li> <!-- se non loggato rimanda al Login -->
+              <li><hr class="dropdown-divider"></li>
+              <li *ngIf="isAdmin() || isUser()"><a class="dropdown-item" (click)="onLogout()"  href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
     </div>
   </div>

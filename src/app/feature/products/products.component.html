@@ -1,17 +1,75 @@
 <div class="mg-t d-flex">
-  <div>
-    <h6 class="filter">Category:</h6>
-    <form>
-      <div class="filter d-flex" *ngFor="let filter of filters">
-        <label [for]="filter.id" class="me-3">{{ filter.label }}</label>
-        <input type="checkbox" [id]="filter.id" [name]="filter.id" [checked]="filter.selected" (change)="toggleFilter(filter)">
-      </div>
-    </form>
+  <div class="col-md-2 showhidefilter">
+    <div class="filters">
+      <h4 class="filter-title mb-5">Filter by:</h4>
+      <form>
+        <ng-container *ngFor="let filter of filters; let last = last">
+          <div class="filter">
+            <div class="row align-items-center">
+              <div class="col-9">
+                <label [for]="filter.id">{{ filter.label }}</label>
+              </div>
+              <div class="col-3 pe-3">
+                <input type="checkbox" [id]="filter.id" [name]="filter.id" [checked]="filter.selected" (change)="toggleFilter(filter)">
+              </div>
+            </div>
+          </div>
+           <!-- Aggiungi una linea hr tra le voci, eccetto l'ultima -->
+          <hr class="hr-color" *ngIf="!last">
+        </ng-container>
+      </form>
+    </div>
   </div>
+
+  <div class="accordion col-12 me-0 pe-0" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Filter by
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <form>
+            <ng-container *ngFor="let filter of filters; let last = last">
+              <div class="filter">
+                <div class="row align-items-center">
+                  <div class="col-9">
+                    <label [for]="filter.id">{{ filter.label }}</label>
+                  </div>
+                  <div class="col-3 pe-3">
+                    <input type="checkbox" [id]="filter.id" [name]="filter.id" [checked]="filter.selected" (change)="toggleFilter(filter)">
+                  </div>
+                </div>
+              </div>
+               <!-- Aggiungi una linea hr tra le voci, eccetto l'ultima -->
+              <hr class="hr-color" *ngIf="!last">
+            </ng-container>
+          </form>
+           <ul class="d-flex flex-wrap mg-ul">
+      <li *ngFor="let p of filteredEmployees; let idx = index">
+        <div class="card my-4 mx-4" style="width: 18rem; cursor: pointer;" (click)="GetDetail(p.productId)">
+          <img class="card-img-top img-db" [src]="getThumbnailImageURL(p.thumbNailPhoto)
+          " alt="Thumbnail">
+          <div class="card-body">
+            <p class="card-text">{{ p.categoryName }}</p>
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">Price: {{ p.listPrice }}€</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <button type="button" (click)="addToCart(p)">Buy</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="filteredEmployees.length > 0">
     <ul class="d-flex flex-wrap mg-ul">
       <li *ngFor="let p of filteredEmployees; let idx = index">
-        <div class="card my-4 mx-4" style="width: 18rem; cursor: pointer;" (click)="GetDetail(p.productId)">
+         <div class="card my-4 mx-4" style="width: 18rem;">
           <img class="card-img-top img-db" [src]="getThumbnailImageURL(p.thumbNailPhoto)
           " alt="Thumbnail">
           <div class="card-body">
@@ -29,8 +87,5 @@
   <div *ngIf="filteredEmployees.length === 0"><h1 class="text-found">Not found</h1></div>
 
 </div>
-
-
-
 
 

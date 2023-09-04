@@ -54,12 +54,51 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
   cursor: pointer;}
 
 .slider [class*="box"] {
+  position: relative; /* Assicura che le caselle siano posizionate correttamente */
+  overflow: hidden; /* Nascondi parti in eccesso del linear gradient */
+}
+
+
+.slider [class*="box"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.886), transparent);
+  z-index: 2; /* Posiziona l'overlay sopra l'immagine */
+}
+
+.slider [class*="box"] h2 {
+  position: relative ;
+  bottom: 70px;
+  left: 50%;
+  transform:scale(1) translateX(-50%);
+  color: white;
+  text-align: center;
+  z-index: 3; /* Posiziona il titolo sopra l'overlay */
+}
+
+.slider [class*="box"] h4 {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform:scale(1) translateX(-50%);
+  color: white;
+  text-align: center;
+  z-index: 3; /* Posiziona il titolo sopra l'overlay */
+}
+
+.slider [class*="box"] {
 /*   float: left; */
   overflow: hidden;
   border-radius:20px;
   transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     position:absolute;
 }
+
+
 .slider [class*="box"]:nth-child(7),
 .slider [class*="box"]:nth-child(1) {
   width: 100vh;
@@ -123,4 +162,55 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
 
 .txt-1{
   margin-top: 10.5em;
+}
+
+/* Mostra solo l'immagine principale per schermi più piccoli di 668px */
+@media (max-width: 668px) {
+  .slider [class*="box"]:nth-child(7),
+  .slider [class*="box"]:nth-child(1),
+  .slider [class*="box"]:nth-child(2),
+  .slider [class*="box"]:nth-child(6),
+  .slider [class*="box"]:nth-child(3),
+  .slider [class*="box"]:nth-child(5) {
+    display: none; /* Nascondi tutte le caselle del carosello tranne l'immagine principale */
+  }
+
+  .slider [class*="box"] h4 {
+    display: none;
+  }
+  .slider [class*="box"] h2 {
+    bottom: 0px;
+  }
+}
+
+/* restrizioni schermi xxs */
+/* ... stili precedenti ... */
+
+/* Mostra solo l'immagine principale a schermo intero per schermi più piccoli di 400px */
+@media (max-width: 400px) {
+  .slider [class*="box"]:nth-child(7),
+  .slider [class*="box"]:nth-child(1),
+  .slider [class*="box"]:nth-child(2),
+  .slider [class*="box"]:nth-child(6),
+  .slider [class*="box"]:nth-child(3),
+  .slider [class*="box"]:nth-child(5) {
+    display: none; /* Nascondi tutte le caselle del carosello tranne l'immagine principale */
+  }
+
+  /* Stili per rendere l'immagine principale a schermo intero senza bordi arrotondati */
+  .slider {
+    height: 100vh;
+  }
+
+  .box4 {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0; /* Rimuovi i bordi arrotondati */
+    background-position: center bottom; /* Personalizza la posizione dell'immagine */
+    transform: none; /* Rimuovi la trasformazione */
+    top: 0; /* Allinea in alto */
+    z-index: 1; /* Imposta l'indice di profondità appropriato */
+  }
+
+  /* Altri stili di adattamento per schermi più piccoli se necessario */
 }

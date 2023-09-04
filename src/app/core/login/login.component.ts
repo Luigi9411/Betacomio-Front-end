@@ -31,7 +31,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
         break;
 
-      } 
+      }
     }, (error) => {
       // Handle HTTP request errors here.
       //Qui sto gestendo le risposte http di errore
@@ -67,6 +67,18 @@ export interface CompleteForm {
   emailAddress: string;
   password: string;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

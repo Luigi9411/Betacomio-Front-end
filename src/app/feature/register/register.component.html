@@ -1,14 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-4">
+<div class="container container-login">
+  <div class="row row-login">
+    <h2>Registrati qui:</h2>
+    <div class="col-12">
       <form #frm="ngForm" ngClass="{error: frm.invalid && frm.dirty}">
-        <div class="mb-3">
+        <div class="form-group mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input #emailAddressref="ngModel" #emailref type="email" class="form-control" name="emailAddress" [ngModel]="singleNames?.emailAddress" id="exampleInputEmail1" required pattern="[a-zA-Z][a-zA-Z-0-9.]*@[a-zA-Z-]{3,}(.[a-zA-Z]{2,})+">
           <div *ngIf="emailAddressref.errors?.['pattern']" class="form-text">The Email Address is in an invalid format</div>
           <div *ngIf="emailAddressref.errors?.['required']" class="form-text">The Email Address is required</div>
         </div>
-        <div class="mb-3">
+        <div class="form-group mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input #passwordref="ngModel" type="password" #pwdref class="form-control" name="password" [ngModel]="singleNames?.password" required pattern="^(?=.*[0-9])(?=.*[!@#$%^&_-])[a-zA-Z0-9!@#$%^&_-]{8,}$">
           <div *ngIf="passwordref.errors?.['pattern']" class="form-text">The password must contain 8 characters with a minimum of one special character and a number</div>
@@ -18,5 +19,20 @@
       </form>
     </div>
   </div>
+  <div class="col-md-6">
+    <a class="" href="#">
+      <img class="logo-img" src="assets/logo/Logo_Betacomio.png" alt="error">
+    </a>
+    <h5 class="small-font">Processing of user data</h5>
+        <p class="small-font">The art. 30 of Regulation (EU) no. 679/2016 (hereinafter "RGPD") provides for the keeping of the register of processing activities among the main obligations of the data controller and data processor.
+
+         It is a document containing the main information (specifically identified by art. 30 of the GDPR) relating to the processing operations carried out by the data controller and, if appointed, by the data processor (in the register of the data processor, see, in particular, point 6 ).
+
+         It constitutes one of the main elements of accountability of the owner, as a suitable tool for providing an updated picture of the treatments in place within one's own organization, indispensable for any risk assessment or analysis activity and therefore preliminary to such activities.
+
+         The register must be in written form, including electronic form, and must be shown to the Guarantor upon request.</p>
+  </div>
 </div>
+
+
 
