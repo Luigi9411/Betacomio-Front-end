@@ -5,7 +5,7 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input #emailAddressref="ngModel" #emailref type="email" class="form-control" name="emailAddress" [ngModel]="singleNames?.emailAddress" id="exampleInputEmail1" required pattern="[a-zA-Z][a-zA-Z-0-9.]*@[a-zA-Z-]{3,}(.[a-zA-Z]{2,})+">
-          <div *ngIf="emailAddressref.errors?.['pattern']" class="form-text">The Email Address is in an invalid format</div>                                                                
+          <div *ngIf="emailAddressref.errors?.['pattern']" class="form-text">The Email Address is in an invalid format</div>
           <div *ngIf="emailAddressref.errors?.['required']" class="form-text">The Email Address is required</div>
         </div>
         <div class="mb-3">
@@ -19,3 +19,4 @@
     </div>
   </div>
 </div>
+
