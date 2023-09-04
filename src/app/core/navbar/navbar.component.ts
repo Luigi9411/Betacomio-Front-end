@@ -25,6 +25,9 @@ export class NavbarComponent implements OnInit  {
   this.productService.setSearchTerm(searchTerm);
   this.router.navigate(['/products']);
   this.products$ = this.searchProducts(searchTerm);
+
+  // Scroll to the top of the page
+  window.scrollTo(0, 0);
 }
 
   search(term: string): void {

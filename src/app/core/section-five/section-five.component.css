@@ -9,3 +9,12 @@
       font-size: 1.2em;
   }
 }
+
+.dim{
+  width: 200px;
+}
+
+li{
+  list-style-type: none;
+  cursor: pointer;
+}

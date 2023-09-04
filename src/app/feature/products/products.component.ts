@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -35,7 +36,7 @@ export class ProductsComponent implements OnInit  {
   ];
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer, private productService: ProductService,
-    private cartService: CartService) {}
+    private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.http.get<any[]>('https://localhost:7139/api/VProductDescriptionPrices')
@@ -62,12 +63,14 @@ export class ProductsComponent implements OnInit  {
     this.filteredEmployees = this.products.filter(p => p.categoryName.toLowerCase().includes(searchTerm.toLowerCase()) || p.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
-
-
   applyFilters(): void {
     this.filteredEmployees = this.products.filter(p => {
       return this.filters.some(filter => filter.selected && p.categoryName === filter.label);
     });
+  }
+  toggleFilter(filter: any): void {
+    filter.selected = !filter.selected;
+    this.applyFilters();
   }
 
   // Function to convert hexadecimal thumbnail data to a Base64-encoded image URL
@@ -76,10 +79,13 @@ export class ProductsComponent implements OnInit  {
     return this.sanitizer.bypassSecurityTrustUrl(base64Image);
   }
 
-  toggleFilter(filter: any): void {
-    filter.selected = !filter.selected;
-    this.applyFilters();
+  //collegamento alla pagina dei dettagli prodotto e id prodotto
+  GetDetail(productId: number): void {
+    this.productService.setSelectedProductId(productId);
+    this.router.navigate(['/product-details', productId]);
   }
+
+
 }
 
 

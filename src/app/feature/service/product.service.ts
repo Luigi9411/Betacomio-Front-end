@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ProductService {
   private searchTermSource = new BehaviorSubject<string>('');
   searchTerm$ = this.searchTermSource.asObservable();
+  selectedProductId: number | null = null;
 
   setSearchTerm(term: string) {
     this.searchTermSource.next(term);
@@ -17,9 +18,17 @@ export class ProductService {
     return this.searchTermSource.getValue();
   }
 
+  //metodi che permette la cattura del dato productId per la richiesta get nel product-detail
+  setSelectedProductId(productId: number): void {
+    this.selectedProductId = productId;
+  }
+
+  getSelectedProductId(): number | null {
+    return this.selectedProductId;
+  }
+
+
 }
-
-
 
 
 

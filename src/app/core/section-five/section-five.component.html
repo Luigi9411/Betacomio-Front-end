@@ -1,56 +1,15 @@
-<section class="bg-dark text-white py-5">
+<section class="bg-dark text-white py-4">
   <div class="container-fluid px-5">
-    <h2 class="py-3">Nuove uscite</h2>
-    <h6 class="sf-5 pb-2 text-br ">Giochi incredibili per PS4 e PS5 disponibili ora</h6>
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-xxl-6 g-4">
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Tony Hawk's™ Pro Skater™ 1 + 2</p>
-      </div>
-      <div class="col">
-        <img class="img-fluid rounded-4" src="assets/logo/Logo_Betacomio.png" alt="#!">
-        <p class="text-font">Crash Bandicoot 4: It's About Time</p>
-      </div>
-    </div>
+    <h2 class="py-3">Best-selling products</h2>
+    <h6 class="sf-5 pb-2 text-br mb-3">Amazing products on offer available now</h6>
+    <ul class="row row-cols-2 row-cols-sm-3 row-cols-xxl-6 g-4">
+      <li *ngFor="let p of filteredProducts; let idx = index" class="col"  (click)="goToProducts(p.name)">
+          <img class="img-fluid rounded-4 dim mb-3" [src]="getThumbnailImageURL(p.thumbNailPhoto)
+          " alt="Thumbnail">
+          <div class="card-body">
+            <h5 class="text-font">{{ p.name }}</h5>
+          </div>
+      </li>
+    </ul>
   </div>
 </section>
