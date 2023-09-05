@@ -68,8 +68,8 @@
 
   <div *ngIf="filteredEmployees.length > 0">
     <ul class="d-flex flex-wrap mg-ul">
-      <li *ngFor="let p of filteredEmployees; let idx = index">
-         <div class="card my-4 mx-4" style="width: 18rem;">
+      <li *ngFor="let p of filteredEmployees; let idx = index" >
+         <div class="card my-4 mx-4" style="width: 18rem;  cursor: pointer;"  (click)="GetDetail(p.productId)">
           <img class="card-img-top img-db" [src]="getThumbnailImageURL(p.thumbNailPhoto)
           " alt="Thumbnail">
           <div class="card-body">
