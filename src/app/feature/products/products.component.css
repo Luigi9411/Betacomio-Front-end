@@ -1,19 +1,12 @@
-
-
-
  .mg-t{
   margin-top: 80px;
 }
 
 .filters {
-  background-color: #b6b6b6a9; /* Imposta il colore di sfondo del menu laterale */
+  background-color: rgba(203, 198, 198, 0.23); /* Imposta il colore di sfondo del menu laterale */
   padding: 20px;
   border-right: 1px solid #ddd;
-}
-
-
-.mg-ul{
-  margin-left: 3em;
+  height: 100%;
 }
 
 li{
@@ -88,6 +81,37 @@ li{
   border-color: #ff5622db !important; /* Cambia il colore del bordo e usa !important per sovrascrivere Bootstrap */
 }
 
+/* colori card */
+
+.card{
+  background-color: rgba(203, 198, 198, 0.23);
+  border-radius: 20px;
+  border: 3px solid transparent;
+  transition: transform .6s;
+  overflow: hidden;
+}
+
+.card:hover {
+  border: 3px solid /* #2D64E6 */ #FF5722;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.btn-col{
+  background-color: #FF5722;
+  border-color: #ff5622db;
+  color: white;
+  border-radius: 20px;
+  
+}
+
+/* card modifiche */
+
+.img-db{
+  border-radius: 20px;
+  padding: 10px;
+}
+
 /* Stile per schermi più piccoli (meno di 900px) */
 @media (max-width: 900px) {
   .showhidefilter {
@@ -95,6 +119,9 @@ li{
   }
   .accordion {
     display: block; /* Visualizza l'accordion */
+  }
+  .showhidesm{
+    display: none;
   }
 }
 

@@ -1,25 +1,33 @@
+<div class="container mg-ul">
+  <div class="row">
+    <!-- mostra prodotti carrello -->
+    <div class="col-7">
+      <ul class="d-flex flex-wrap">
+        <li *ngFor="let item of items; let idx = index">
+          <div class="card my-4 mx-4" style="width: 18rem;">
+            <img class="card-img-top img-db" [src]="getThumbnailImageURL(item.product.thumbNailPhoto)" alt="Thumbnail">
+            <div class="card-body">
+              <p class="card-text">{{ item.product.categoryName }}</p>
+              <h5 class="card-title">{{ item.product.name }}</h5>
+              <p class="card-text">Price: {{ item.product.listPrice }}€</p>
+              <p class="card-text">Quantity: {{ item.quantity }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <button type="button" (click)="removeItem(idx)">Remove</button>
+              <input type="number" [value]="item.quantity" (change)="updateQuantity($event, idx)">              
+            </div>
+          </div>
+        </li>
+      </ul>
 
-<!-- cart.component.html -->
-<ul class="d-flex flex-wrap mg-ul">
-  <li *ngFor="let item of items; let idx = index">
-    <div class="card my-4 mx-4" style="width: 18rem;">
-      <img class="card-img-top img-db" [src]="getThumbnailImageURL(item.product.thumbNailPhoto)" alt="Thumbnail">
-      <div class="card-body">
-        <p class="card-text">{{ item.product.categoryName }}</p>
-        <h5 class="card-title">{{ item.product.name }}</h5>
-        <p class="card-text">Price: {{ item.product.listPrice }}€</p>
-        <p class="card-text">Quantity: {{ item.quantity }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <button type="button" (click)="removeItem(idx)">Remove</button>
-        <input type="number" [value]="item.quantity" (change)="updateQuantity($event, idx)">
-
+      <!-- se il cart è vuoto -->
+      <div *ngIf="items.length === 0"><h1 class="text-found mt-5">Cart is empty <i class="bi bi-cart-x"></i></h1></div>
+    </div>
+    <!-- price check -->
+    <div class="col-5">
+      <h2 class="mt-5 mb-4">Checkout</h2>
+      <div class="col-md-5 mb-2">
+        <button (click)="makePayment(getSubtotal())" class="btn btn-danger btn-block mb-5">{{getSubtotal()}}</button>
       </div>
     </div>
-  </li>
-</ul>
-<div class="container">
-  <h2 class="mt-5 mb-4">Angular Stripe Checkout Example</h2>
-  <div class="col-md-5 mb-2">
-    <button (click)="makePayment(getSubtotal())" class="btn btn-danger btn-block">{{getSubtotal()}}</button>
   </div>
 </div>
