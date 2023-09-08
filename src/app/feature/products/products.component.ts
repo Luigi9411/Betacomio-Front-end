@@ -64,7 +64,7 @@ export class ProductsComponent implements OnInit  {
     this.showAlert = true;
     setTimeout(() => {
       this.showAlert = false;
-    }, 3000);
+    }, 1500);
   }
 
 
