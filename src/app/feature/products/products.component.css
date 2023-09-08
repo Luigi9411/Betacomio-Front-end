@@ -138,3 +138,19 @@ li{
   }
 }
 
+.alert {
+  /* Stili per l'avviso (colore, dimensioni, ecc.) */
+  position: fixed;
+  top: 15%;
+  right: 40%;
+  background-color: #FF5722;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+ 
+}
+
+.alert.show {
+  opacity: 1;
+}
+

@@ -37,3 +37,14 @@
 // }
 
 // }
+
+
+
+// const authBasicValue = sessionStorage.getItem('AuthBasic');
+//   if (authBasicValue) {
+//     alert(authBasicValue)
+//   this.headerOptions = this.headerOptions.set('Authorization', authBasicValue as string);
+//   } else {
+//   alert('la sessione è scaduta, rieffettua il login')
+//   return;
+// }

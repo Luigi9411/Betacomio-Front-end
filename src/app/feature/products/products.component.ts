@@ -35,6 +35,8 @@ export class ProductsComponent implements OnInit  {
     { id: '19', label: 'Chains', selected: false },
   ];
 
+  showAlert = false;
+
   constructor(private http: HttpClient, private sanitizer: DomSanitizer, private productService: ProductService,
     private cartService: CartService, private router: Router) {}
 
@@ -55,8 +57,16 @@ export class ProductsComponent implements OnInit  {
 
   addToCart(product: Products) {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
+    this.showAlertMessage();
   }
+
+  showAlertMessage() {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
+  }
+
 
   //metodo che permette la ricerca con search anche da navbar in pagina
   applySearchFilter(searchTerm: string): void {
@@ -85,6 +95,7 @@ export class ProductsComponent implements OnInit  {
     this.router.navigate(['/product-details', productId]);
   }
 
+  
 
 }
 

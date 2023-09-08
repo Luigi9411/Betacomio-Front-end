@@ -58,7 +58,7 @@
                 <p class="card-text">{{ p.categoryName }}</p>
                 <h5 class="card-title">{{ p.name }}</h5>
                 <p class="card-text">Price: {{ p.listPrice }}€</p>
-                <a href="#" class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
+                <a class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
                 <button type="button" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
               </div>
             </div>
@@ -77,7 +77,7 @@
             <p class="card-text">{{ p.categoryName }}</p>
             <h6 class="card-title">{{ p.name }}</h6>
             <p class="card-text">Price: {{ p.listPrice }}€</p>
-            <a href="#" class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
+            <a class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
             <button type="button" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
           </div>
         </div>
@@ -88,5 +88,10 @@
   <div *ngIf="filteredEmployees.length === 0"><h1 class="text-found">Not found</h1></div>
 
 </div>
+
+<div class="alert" *ngIf="showAlert">
+  Your item has been added to the cart
+</div>
+
 
 

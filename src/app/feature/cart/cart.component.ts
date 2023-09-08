@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../../feature/service/cart.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { SrvproductService } from '../service/srvproduct.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 
 
@@ -10,10 +14,13 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit, OnDestroy{
 
   paymentHandler: any = null;
   items = this.cartService.getItems();
+
+  private headerOptionsSubscription: Subscription;
+  private headerOptions?: HttpHeaders;
 
   cus: OldCustomer = {
     customerId: 0,
@@ -26,15 +33,26 @@ export class CartComponent {
   orderH: OrderHeader = {
     salesOrderId: 0
   }
-  headerOptions = new HttpHeaders().set('Content-Type', 'application/json');
+  //headerOptions = new HttpHeaders().set('Content-Type', 'application/json')
+ 
 
   ngOnInit() {
     this.invokeStripe();
   }
 
-  constructor(
-    private cartService: CartService, private sanitizer: DomSanitizer, private http: HttpClient
-  ) { }
+  constructor(private cartService: CartService, private sanitizer: DomSanitizer, private http: HttpClient, private srv: SrvproductService,private router: Router) {
+    //Aggiunge i valori ad headerOptionsSubscription
+    this.headerOptionsSubscription = this.srv.headerOptions$.subscribe(
+      (headerOptions) => {
+        this.headerOptions = headerOptions;
+      }
+    );
+  }
+
+  //Cancella i vecchi valori
+  ngOnDestroy(): void {
+    this.headerOptionsSubscription.unsubscribe();
+  }
 
   getThumbnailImageURL(thumbNailPhoto: string): SafeUrl {
     const base64Image = 'data:image/jpeg;base64,' + thumbNailPhoto;
@@ -66,7 +84,6 @@ makePayment(amount: any) {
     locale: 'auto',
     token: (stripeToken: any) => {
       console.log(stripeToken);
-      alert('Stripe token generated!');
 
       const email: string = stripeToken.email;
 
@@ -82,7 +99,10 @@ makePayment(amount: any) {
         }
       );
 
+      this.postOrderHistory();
 
+      this.cartService.clearCart();
+      this.router.navigate(['/']); // Reindirizza l'utente alla pagina "home"
 
     },
   });
@@ -94,6 +114,8 @@ makePayment(amount: any) {
     description: '3 widgets',
     amount: amount * 100,
   });
+
+ 
 }
 
 invokeStripe() {
@@ -147,11 +169,14 @@ for (let i = 0; i < this.items.length; i++) {
 
     //Post order header
 
-    this.http.post<OrderHeader>('https://localhost:7139/api/SalesOrderHeaders', body)
+    this.http.post<OrderHeader>('https://localhost:7139/api/SalesOrderHeaders', body, {
+      headers: this.headerOptions,
+    })
     .subscribe(
       (resp) => {
 
         this.orderH = resp as OrderHeader;
+        this.postOrderDetails(this.orderH);
       },
       (error) => {
         // Gestisci gli errori della richiesta HTTP qui.
@@ -159,30 +184,36 @@ for (let i = 0; i < this.items.length; i++) {
       }
     );
 
+
+    
+
+  }
+
+  postOrderDetails(orderHead: OrderHeader){
+
+
     for(let i = 0; i < this.items.length; i++){
 
-      const body2 = { salesOrderId: this.orderH.salesOrderId, salesOrderDetailId: 0, orderQty: this.items[i].quantity,
+      const body2 = { salesOrderId: orderHead.salesOrderId as number, salesOrderDetailId: 0, orderQty: this.items[i].quantity,
         productId: this.items[i].product.productId, unitPrice: this.items[i].product.listPrice,  unitPriceDiscount: 0.0000,
         lineTotal: this.items[i].product.listPrice * this.items[i].quantity, rowguid: crypto.randomUUID(),
         modifiedDate: new Date()}
 
+
       //post order detail
-      this.http.post('https://localhost:7139/api/NewCustomers', body2, {
+      this.http.post('https://localhost:7139/api/SalesOrderDetails', body2, {
       headers: this.headerOptions,
       observe: 'response' // To get the full HTTP response, including the status code.
     })
     .subscribe(
       (resp) => {
-        if (resp.status === 200) {
+        if (resp.status === 201) {
           // Registration was successful, you can navigate to a success page.
           console.log('Order sent');
         } else if (resp.status === 400) {
-          alert('Invalid Request !!!');
-        } else if(resp.status == 204){
+          alert('Something went wrong with the order registration !!!');
+        } else {
           alert("Invalid Order");
-        }
-        else {
-          // Handle other status codes as needed.
         }
       },
       (error) => {
@@ -194,7 +225,6 @@ for (let i = 0; i < this.items.length; i++) {
 
 
     }
-
   }
 
 }
@@ -217,6 +247,9 @@ export interface OldCustomer{
 export interface OrderHeader{
   salesOrderId: number;
 }
+
+
+
 
 
 
