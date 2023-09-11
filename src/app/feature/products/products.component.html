@@ -59,7 +59,7 @@
                 <h5 class="card-title">{{ p.name }}</h5>
                 <p class="card-text">Price: {{ p.listPrice }}€</p>
                 <a class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
-                <button type="button" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
+                <button type="button" *ngIf="isAdmin() || isUser()" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
               </div>
             </div>
           </li>
@@ -78,7 +78,7 @@
             <h6 class="card-title">{{ p.name }}</h6>
             <p class="card-text">Price: {{ p.listPrice }}€</p>
             <a class="btn btn-col" (click)="GetDetail(p.productId)">Details</a>
-            <button type="button" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
+            <button type="button" *ngIf="isAdmin() || isUser()" class="btn btn-col ms-2" (click)="addToCart(p)"><i class="bi bi-cart"></i></button>
           </div>
         </div>
       </li>

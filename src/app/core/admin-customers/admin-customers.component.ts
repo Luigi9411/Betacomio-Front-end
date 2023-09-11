@@ -40,6 +40,24 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
     );
   }
 
+  deleteCustomer(customerId: number): void {
+    const url = `https://localhost:7139/api/Customers/${customerId}`;
+
+    this.http.delete<Customers[]>(url, {
+      headers: this.headerOptions,
+    })
+    .subscribe(
+      (resp) => {
+        this.customer = resp;
+      },
+      (error) => {
+        // Gestisci gli errori della richiesta HTTP qui.
+        console.error('Errore nella richiesta HTTP:', error);
+      }
+    );
+  }
+
+
 
   ngOnDestroy(): void {
     this.headerOptionsSubscription.unsubscribe();
@@ -48,7 +66,7 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
 
 
 export interface Customers {
-  customerID: number;
+  customerId: number;
   firstName : string;
   lastName: string;
   emailAddress: number;

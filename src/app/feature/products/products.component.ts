@@ -67,6 +67,16 @@ export class ProductsComponent implements OnInit  {
     }, 3000);
   }
 
+  isAdmin(): boolean {
+    const userRole = sessionStorage.getItem("Role");
+    return userRole === "Admin";
+  }
+
+  isUser(): boolean {
+    const userRole = sessionStorage.getItem("Role");
+    return userRole === "User";
+  }
+
 
   //metodo che permette la ricerca con search anche da navbar in pagina
   applySearchFilter(searchTerm: string): void {
@@ -95,7 +105,7 @@ export class ProductsComponent implements OnInit  {
     this.router.navigate(['/product-details', productId]);
   }
 
-  
+
 
 }
 

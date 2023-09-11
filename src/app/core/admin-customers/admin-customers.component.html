@@ -1,12 +1,43 @@
-<pre>
+<div *ngFor="let p of customer; let idx = index" class="col-8 text-center margine">
 
-  <h1>ciao</h1>
-  <h1>ciao</h1>
-  <h1>ciao</h1>
-  <h1>ciao</h1>
-  <h1>ciao</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer Id</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{p.customerId}}</td>
+        <td>{{p.firstName}}</td>
+        <td>{{p.lastName}}</td>
+        <td>{{p.emailAddress}}</td>
+        <td>{{p.phone}}</td>
+        <td>{{p.modifiedDate}}</td>
+        <td>
+          <button type="button" class="btn btn-col ms-2" (click)="deleteCustomer(p.customerId)">Delete</button>
+        </td>
+      </tr>
 
-  <li *ngFor="let p of customer; let idx = index" class="col">
-    {{p.firstName }}
-</li>
-</pre>
+      <!-- subtotale da inserire -->
+
+    </tbody>
+  </table>
+</div>
+
+<!-- pagination -->
+
+<!-- <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav> -->
