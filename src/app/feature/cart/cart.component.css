@@ -1,3 +1,62 @@
 .mg-ul{
     margin-top: 80px;
 }
+
+.product-list{
+    list-style: none;
+}
+
+.btn-color{
+    background-color: #FF5722;
+    border-color: #ff5622db;
+    color: white;    
+  }
+
+.card{
+    background-color: rgba(203, 198, 198, 0.23);
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #FF5722;
+}
+
+.custom-input {
+    /* Aggiungi il tuo stile personalizzato qui */
+    border: 2px solid rgb(203, 198, 198); /* Colore del bordo */
+    border-radius: 5px; /* Raggio del bordo */
+    padding: 5px 10px; /* Spaziatura interna */
+    font-size: 16px; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+    background-color: #fff; /* Colore di sfondo */
+  }
+  
+  .custom-input:focus {
+    /* Stile quando l'input ha il focus */
+    outline: none; /* Rimuovi l'outline predefinito */
+    border-color: #ff5733; /* Cambia colore del bordo quando ha il focus */
+    box-shadow: 0 0 5px rgba(255, 87, 51, 0.5); /* Aggiungi una leggera ombra */
+  }
+  
+  .checkout{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #ff562273;
+  }
+
+  .subtotal{
+    background-color: #FF5722;
+    color: white;
+  }
+  .subtotal:hover{
+    background-color: white;
+    color: #FF5722;
+    border-color: #FF5722;
+  }
+  
+
+@media (max-width: 1200px) {
+    .btn-color{
+        margin-bottom: 5px;
+    }
+  }

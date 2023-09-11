@@ -2,17 +2,21 @@
 
     <p>{{product | json}}</p>
   </pre> -->
-
-  <div class="card my-4 mx-4" style="width: 18rem;">
-    <img class="card-img-top img-db" [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
-    <div class="card-body">
-      <p class="card-text">{{ product.categoryName }}</p>
-      <h5 class="card-title">{{ product.name }}</h5>
-      <p class="card-text">Price: {{ product.listPrice }}€</p>
-      <p class="card-text">{{ product.color }}</p>
-      <p class="card-text">{{ product.culture }}</p>
-      <p class="card-text">{{ product.description }}</p>
+<div class="container vh-100">
+  <div class="row">
+    <div class="col-5">
+      <p class="">{{ product.categoryName }}</p>
+      <h2 class="mb-5">{{ product.name }}</h2> 
+      <img class="img-width" [src]="getThumbnailImageURL(product.thumbNailPhoto)" alt="Thumbnail">
     </div>
+    <div class="col-6 mt-5">
+      <p class="">Price: {{ product.listPrice }}€</p>
+      <p class="">{{ product.color }}</p>
+      <p class="">{{ product.culture }}</p>
+      <p class="">{{ product.description }}</p>
+    </div>
+  </div>
+</div>
 
 
 
