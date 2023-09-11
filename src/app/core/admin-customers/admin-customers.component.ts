@@ -4,14 +4,14 @@ import { SrvproductService } from '../../feature/service/srvproduct.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 
-
 @Component({
-  selector: 'app-admin-page',
-  templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.css']
+  selector: 'app-admin-customers',
+  templateUrl: './admin-customers.component.html',
+  styleUrls: ['./admin-customers.component.css']
 })
-export class AdminPageComponent implements OnInit, OnDestroy{
-  orderHistory!: OrderHistory[];
+export class AdminCustomersComponent implements OnInit, OnDestroy {
+
+  customer!: Customers[];
   private headerOptionsSubscription: Subscription;
   private headerOptions?: HttpHeaders;
 
@@ -26,12 +26,12 @@ export class AdminPageComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void {
-    this.http.get<OrderHistory[]>('https://localhost:7139/api/VOrderHistories', {
+    this.http.get<Customers[]>('https://localhost:7139/api/Customers/GetCustomers', {
       headers: this.headerOptions,
     })
     .subscribe(
       (resp) => {
-        this.orderHistory = resp;
+        this.customer = resp;
       },
       (error) => {
         // Gestisci gli errori della richiesta HTTP qui.
@@ -44,16 +44,20 @@ export class AdminPageComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.headerOptionsSubscription.unsubscribe();
   }
-
 }
 
 
-export interface OrderHistory {
-  salesOrderId: number;
-  orderQty : number;
-  productId: number;
-  customerId: number;
-  subTotal: number;
-  orderDate: Date;
-  unitPrice: number;
+export interface Customers {
+  customerID: number;
+  firstName : string;
+  lastName: string;
+  emailAddress: number;
+  phone: number;
+  modifiedDate: Date;
 }
+
+
+
+
+
+
