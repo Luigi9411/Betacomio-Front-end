@@ -10,6 +10,15 @@
   background-color: #272D26;
 }
 
+
+.white-hr {
+  background-color: white; /* Imposta il colore di sfondo a bianco */
+  height: 1px; /* Imposta l'altezza desiderata */
+  margin: 10px 0; /* Imposta il margine superiore e inferiore desiderato */
+  /* Altri stili desiderati */
+}
+
+
 .drop{
   color: white !important;
 }
