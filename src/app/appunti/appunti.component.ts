@@ -48,3 +48,12 @@
 //   alert('la sessione è scaduta, rieffettua il login')
 //   return;
 // }
+
+
+// SELECT TOP (1000) SalesOrderHeader_1.SalesOrderID, SalesLT.SalesOrderDetail.OrderQty, SalesLT.SalesOrderDetail.ProductID, SalesOrderHeader_1.CustomerID, SalesOrderHeader_1.SubTotal, SalesOrderHeader_1.OrderDate,
+//                   SalesLT.SalesOrderDetail.UnitPrice
+// FROM     (SELECT DISTINCT SalesOrderID
+//                   FROM      SalesLT.SalesOrderHeader) AS UniqueOrderIDs INNER JOIN
+//                   SalesLT.SalesOrderHeader AS SalesOrderHeader_1 ON UniqueOrderIDs.SalesOrderID = SalesOrderHeader_1.SalesOrderID INNER JOIN
+//                   SalesLT.SalesOrderDetail ON SalesOrderHeader_1.SalesOrderID = SalesLT.SalesOrderDetail.SalesOrderID
+// ORDER BY SalesOrderHeader_1.OrderDate DESC

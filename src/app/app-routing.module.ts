@@ -12,7 +12,7 @@ import { RegisterDetailComponent } from './feature/register-detail/register-deta
 import { RegisterAdminComponent } from './feature/register-admin/register-admin.component';
 import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
 import { AdminPageComponent } from './core/admin-page/admin-page.component';
-
+import { AdminCustomersComponent } from './core/admin-customers/admin-customers.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -27,6 +27,7 @@ const routes: Routes = [
   {path: "register-admin", component: RegisterAdminComponent},
   {path: "register-admin-details", component: RegisterAdminDetailComponent},
   {path: "admin-page", component: AdminPageComponent},
+  {path: "admin-customers", component: AdminCustomersComponent },
 ];
 
 @NgModule({

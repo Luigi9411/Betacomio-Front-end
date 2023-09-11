@@ -1,7 +1,7 @@
 
 <div *ngFor="let p of orderHistory; let idx = index" class="col-8 text-center margine">
   <h2>Ordini di {{p.customerId}}</h2>
-  
+
   <table class="table">
     <thead>
       <tr>
@@ -22,9 +22,9 @@
         <td>{{p.orderDate}}</td>
         <td>{{p.unitPrice}}</td>
       </tr>
-      
+
       <!-- subtotale da inserire -->
-  
+
     </tbody>
   </table>
 </div>

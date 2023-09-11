@@ -93,13 +93,13 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
 .slider [class*="box"] {
 /*   float: left; */
   overflow: hidden;
-  border-radius:20px;
+  border-radius:20px !important;
   transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     position:absolute;
 }
 
 
-.slider [class*="box"]:nth-child(7),
+
 .slider [class*="box"]:nth-child(1) {
   width: 100vh;
   height: 60vh;
@@ -108,7 +108,8 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
   z-index:1;
 }
 .slider [class*="box"]:nth-child(2),
-.slider [class*="box"]:nth-child(6) {
+.slider [class*="box"]:nth-child(6)
+ {
   width: 100vh;
   height: 60vh;
   transform: scale(0.4) translate(-50%,-50%);
@@ -141,10 +142,8 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
 .slider [class*="box"]:nth-child(4){
   left:50%;}
 .slider [class*="box"]:nth-child(5){
-  left:71%;}
+  left:69%;}
 .slider [class*="box"]:nth-child(6){
-  left:85%;}
-.slider [class*="box"]:nth-child(7){
   left:100%;}
 .slider .firstSlide {
     -webkit-animation:  firstChild 1s;
@@ -161,12 +160,17 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
 }
 
 .txt-1{
-  margin-top: 10.5em;
+  margin-top: 12.5em;
+}
+
+.txt-2{
+  margin-bottom: 2.5em;
+  white-space: nowrap;
 }
 
 /* Mostra solo l'immagine principale per schermi più piccoli di 668px */
 @media (max-width: 668px) {
-  .slider [class*="box"]:nth-child(7),
+  .slider [class*="box"]:nth-child(6),
   .slider [class*="box"]:nth-child(1),
   .slider [class*="box"]:nth-child(2),
   .slider [class*="box"]:nth-child(6),
@@ -188,7 +192,7 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
 
 /* Mostra solo l'immagine principale a schermo intero per schermi più piccoli di 400px */
 @media (max-width: 400px) {
-  .slider [class*="box"]:nth-child(7),
+  .slider [class*="box"]:nth-child(6),
   .slider [class*="box"]:nth-child(1),
   .slider [class*="box"]:nth-child(2),
   .slider [class*="box"]:nth-child(6),
@@ -198,9 +202,7 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
   }
 
   /* Stili per rendere l'immagine principale a schermo intero senza bordi arrotondati */
-  .slider {
-    height: 100vh;
-  }
+
 
   .box4 {
     width: 100vw;
@@ -212,5 +214,16 @@ background:url('https://hd2.tudocdn.net/905166?w=1200&h=675');
     z-index: 1; /* Imposta l'indice di profondità appropriato */
   }
 
+  .slider [class*="box"] {
+    /*   float: left; */
+      overflow: hidden;
+      width: 320px !important;
+      border-radius:20px !important;
+      transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        position:absolute;
+    }
+
   /* Altri stili di adattamento per schermi più piccoli se necessario */
 }
+
+
