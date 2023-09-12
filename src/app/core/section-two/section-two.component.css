@@ -24,6 +24,20 @@
   }
 
 
+  @media (max-width: 668px) {
+
+    img {
+      width: 500px;
+      height: 150px;
+      margin-top: 14px;
+    }
+
+    .small{
+      margin-top: 14px;
+
+    }
+  }
+
 @media (min-width:768px) and (max-width:1399px){
   .text-pad{
       padding-top: 30px;
@@ -52,6 +66,8 @@
 .text-margin{
   margin-top: 5.5em;
 }
+
+
 
 
 
