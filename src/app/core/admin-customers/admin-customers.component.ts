@@ -37,7 +37,6 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
     .subscribe(
       (resp) => {
         this.customer = resp;
-        this.ngOnInit();
       },
       (error) => {
         // Gestisci gli errori della richiesta HTTP qui.
@@ -65,7 +64,7 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
         // Gestisci gli errori della richiesta HTTP qui.
         console.error('Errore nella richiesta HTTP:', error);
       }
-      );
+    );
   }
 
 
