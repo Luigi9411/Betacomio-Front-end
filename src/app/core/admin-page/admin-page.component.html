@@ -1,8 +1,8 @@
 
-<div *ngFor="let p of orderHistory; let idx = index" class="col-8 text-center margine">
+<div *ngFor="let p of orderHistory; let idx = index" class="col-11 text-center margine mx-5">
   <h2>Ordini di {{p.customerId}}</h2>
 
-  <table class="table">
+  <table class="table table-bordered mx-auto mb-5">
     <thead>
       <tr>
         <th scope="col">Sales Order Id</th>
@@ -29,15 +29,4 @@
   </table>
 </div>
 
-<!-- pagination -->
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
 

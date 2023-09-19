@@ -26,6 +26,8 @@ import { RegisterAdminComponent } from './feature/register-admin/register-admin.
 import { RegisterAdminDetailComponent } from './feature/register-admin-detail/register-admin-detail.component';
 import { AdminPageComponent } from './core/admin-page/admin-page.component';
 import { AdminCustomersComponent } from './core/admin-customers/admin-customers.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { AdminCustomersComponent } from './core/admin-customers/admin-customers.
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

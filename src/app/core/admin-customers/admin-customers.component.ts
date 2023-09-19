@@ -4,6 +4,7 @@ import { SrvproductService } from '../../feature/service/srvproduct.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-admin-customers',
   templateUrl: './admin-customers.component.html',
@@ -14,6 +15,10 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
   customer!: Customers[];
   private headerOptionsSubscription: Subscription;
   private headerOptions?: HttpHeaders;
+
+  // Proprietà per la paginazione
+  currentPage: number = 1;
+  itemsPerPage: number = 25;
 
   constructor(  private http: HttpClient, private srv: SrvproductService) {
     //Aggiunge i valori ad headerOptionsSubscription
@@ -39,6 +44,11 @@ export class AdminCustomersComponent implements OnInit, OnDestroy {
         console.error('Errore nella richiesta HTTP:', error);
       }
     );
+  }
+
+  // Imposta il numero di elementi da visualizzare per pagina
+  setPage(page: number) {
+    this.currentPage = page;
   }
 
   deleteCustomer(customerId: number): void {
@@ -74,7 +84,6 @@ export interface Customers {
   phone: number;
   modifiedDate: Date;
 }
-
 
 
 

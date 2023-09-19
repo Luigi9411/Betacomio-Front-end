@@ -3,8 +3,6 @@ import { Subscription } from 'rxjs';
 import { SrvproductService } from '../../feature/service/srvproduct.service';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
-
-
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',

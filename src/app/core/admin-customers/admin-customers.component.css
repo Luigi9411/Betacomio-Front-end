@@ -1,0 +1,29 @@
+.margine{
+    margin-top: 90px;
+}
+
+.button-del {
+    background-color: #FF5722;;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    /* cursor: pointer; */
+    border-color: #fff;
+  }
+  
+  .button-del:hover {
+    background-color: #ececec;;
+    color: #FF5722;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-color: #FF5722;
+    /* cursor: pointer; */
+  }
+  
+.table-bordered{
+  border: 2px solid #e18366;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #FF5722;
+}
