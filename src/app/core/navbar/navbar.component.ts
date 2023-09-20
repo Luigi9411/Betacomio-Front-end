@@ -20,15 +20,26 @@ export class NavbarComponent implements OnInit  {
 
   constructor(private http: HttpClient, private productService: ProductService,private router: Router, private srv: SrvproductService ) {}
 
-
+  //ricerca da navbar
   goToProducts(searchTerm: string) {
-  this.productService.setSearchTerm(searchTerm);
-  this.router.navigate(['/products']);
-  this.products$ = this.searchProducts(searchTerm);
+    this.productService.setSearchTerm(searchTerm);
+    this.router.navigate(['/products']);
+    this.products$ = this.searchProducts(searchTerm);
 
-  // Scroll to the top of the page
-  window.scrollTo(0, 0);
-}
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
+  }
+
+   //ricerca da navbar
+  searchProducts(term: string): Observable<Products[]> {
+    if (!term.trim()) {
+      // Se il termine di ricerca Ã¨ vuoto, restituisci un array vuoto.
+      return of([]);
+    }
+    // Aggiungi la tua logica per effettuare la ricerca dei prodotti qui.
+    // Ad esempio, puoi utilizzare HttpClient per effettuare una richiesta HTTP al tuo server API.
+    return this.http.get<Products[]>(`https://localhost:7139/api/VProductDescriptionPrices/GetProductsByCategoryAndName/${term}`);
+  }
 
   search(term: string): void {
     this.searchTerms.next(term);
@@ -50,15 +61,6 @@ export class NavbarComponent implements OnInit  {
   }
 
 
-  searchProducts(term: string): Observable<Products[]> {
-    if (!term.trim()) {
-      // Se il termine di ricerca Ã¨ vuoto, restituisci un array vuoto.
-      return of([]);
-    }
-    // Aggiungi la tua logica per effettuare la ricerca dei prodotti qui.
-    // Ad esempio, puoi utilizzare HttpClient per effettuare una richiesta HTTP al tuo server API.
-    return this.http.get<Products[]>(`https://localhost:7139/api/VProductDescriptionPrices/GetProductsByCategoryAndName/${term}`);
-  }
 
   ngOnInit(): void {
     this.products$ = this.searchTerms.pipe(
