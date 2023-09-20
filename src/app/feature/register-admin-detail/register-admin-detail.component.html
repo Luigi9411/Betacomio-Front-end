@@ -1,25 +1,24 @@
-<div class="container container-login">
-  <div class="row row-login">
-    <h2>Add more detail about the new user:</h2>
-    <div class="col-12">
+<div class="container">
+  <div class="row">
+    <div class="col-4">
       <form #frm="ngForm" (submit)="InsertForm(frm)" ngClass="{error: frm.invalid && frm.dirty}">
         <div class="mb-3">
           <label for="firstName" class="form-label">Firstname</label>
           <input #firstNameref="ngModel" #nameref type="firstName" class="form-control" name="firstName" [ngModel]="singleNames?.firstName" id="firstName" required minlength="3">
-          <div *ngIf="firstNameref.errors?.['pattern']" class="form-text">  Name must have at least 3 letters</div>
-          <div *ngIf="firstNameref.errors?.['required']" class="form-text">  Name is mandatory </div>
+          <div *ngIf="firstNameref.errors?.['pattern']" class="form-text"> Il nome deve contenere minimo tre lettere</div>
+          <div *ngIf="firstNameref.errors?.['required']" class="form-text"> Il nome è obligatorio </div>
         </div>
         <div class="mb-3">
           <label for="lastName" class="form-label">Lastname</label>
           <input #lastNameref="ngModel" #lastnameref type="lastName" class="form-control" name="lastName" [ngModel]="singleNames?.lastName" id="lastName" required minlength="3">
-          <div *ngIf="lastNameref.errors?.['pattern']" class="form-text">Surname must have at least 3 letters</div>
-          <div *ngIf="lastNameref.errors?.['required']" class="form-text"> Surname is mandatory </div>
+          <div *ngIf="lastNameref.errors?.['pattern']" class="form-text">Il cognome deve contenere minimo tre lettere  </div>
+          <div *ngIf="lastNameref.errors?.['required']" class="form-text"> Il cognome è obligatorio </div>
         </div>
         <div class="mb-3">
           <label for="phone" class="form-label">Phone</label>
           <input #phoneref="ngModel" #phoneref2 type="phone" class="form-control" name="phone" [ngModel]="singleNames?.phone" required  pattern="^[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}$">
-          <div *ngIf="phoneref.errors?.['pattern']" class="form-text"> Phone number must have at least 10 numbers</div>
-          <div *ngIf="phoneref.errors?.['required']" class="form-text"> Number is mandatory</div>
+          <div *ngIf="phoneref.errors?.['pattern']" class="form-text"> Il numero è composto da 10 numeri</div>
+          <div *ngIf="phoneref.errors?.['required']" class="form-text"> Il numero è obligatorio </div>
         </div>
         <button type="submit" (click)="PutCredentials(nameref, lastnameref, phoneref2)" [disabled]="frm.invalid" class="btn btn-primary">Submit</button>
       </form>
